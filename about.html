@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Soul Aligned Travels</title>
+  <meta name="description" content="Visual storytelling for luxury properties and soulful spaces. Created by Laina Chavez.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Soul Aligned Travels | Cinematic Storytelling for Luxury Stays">
+  <meta property="og:description" content="Visual storytelling for luxury properties and soulful spaces. Created by Laina Chavez.">
+  <meta property="og:image" content="https://picsum.photos/seed/luxury-cabin/1200/630">
+  <meta property="og:type" content="website">
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif'>SA</text></svg>">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #FAF8F5;
+      color: #333333;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── NAV ── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #FAF8F5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+      transition: box-shadow 0.4s ease;
+    }
+    .site-nav.scrolled { box-shadow: 0 2px 20px rgba(44,36,32,0.08); }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #2C2420;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+    .nav-logo sup {
+      font-size: 0.6em;
+      vertical-align: super;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .nav-links a {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #333333;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: #8B7D6B; }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: #2C2420;
+      line-height: 1;
+    }
+
+    /* ── PORTRAIT + INTRO ── */
+    .about-hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4.5rem 2rem 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      align-items: flex-start;
+    }
+
+    .portrait-wrap {
+      width: 100%;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .portrait-wrap img {
+      display: block;
+      width: 100%;
+      max-height: 520px;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .about-identity {
+      width: 100%;
+    }
+    .about-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #2C2420;
+      line-height: 1.05;
+      margin-bottom: 0.75rem;
+    }
+    .about-subtitle {
+      font-family: 'Raleway', sans-serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: #8B7D6B;
+      letter-spacing: 0.04em;
+      margin-bottom: 2rem;
+    }
+    .rule {
+      width: 60px;
+      height: 1px;
+      background: #8B7D6B;
+      margin-bottom: 2rem;
+    }
+    .bio-text {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.97rem;
+      font-weight: 300;
+      color: #333;
+      line-height: 1.9;
+    }
+    .bio-text p + p { margin-top: 1.4rem; }
+
+    /* ── APPROACH ── */
+    .approach-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    .section-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #2C2420;
+      margin-bottom: 2rem;
+    }
+    .approach-text {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.97rem;
+      font-weight: 300;
+      color: #333;
+      line-height: 1.9;
+      max-width: 720px;
+    }
+    .approach-text p + p { margin-top: 1.4rem; }
+
+    /* ── DELIVERABLES ── */
+    .deliverables-section {
+      background: #2C2420;
+      padding: 5rem 2rem;
+    }
+    .deliverables-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .deliverables-section .section-heading {
+      color: #FAF8F5;
+      margin-bottom: 2.5rem;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .service-card {
+      border-top: 1px solid rgba(250,248,245,0.15);
+      padding-top: 1.5rem;
+    }
+    .service-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #FAF8F5;
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.03em;
+    }
+    .service-card-desc {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.87rem;
+      font-weight: 300;
+      color: rgba(250,248,245,0.65);
+      line-height: 1.75;
+    }
+    .deliverables-closing {
+      margin-top: 3rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: #A8B5A2;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── CTA ── */
+    .about-cta {
+      padding: 5.5rem 2rem;
+      text-align: center;
+      background: #FAF8F5;
+    }
+    .about-cta-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 300;
+      color: #2C2420;
+      margin-bottom: 2rem;
+      letter-spacing: 0.02em;
+    }
+    .btn-dark {
+      display: inline-block;
+      padding: 0.9rem 2.8rem;
+      background: #2C2420;
+      color: #FAF8F5;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.6s ease;
+    }
+    .btn-dark:hover { background: #8B7D6B; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #2C2420;
+      border-top: 1px solid rgba(250,248,245,0.07);
+      padding: 1.75rem 2rem;
+      text-align: center;
+    }
+    footer p {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: rgba(250,248,245,0.45);
+      letter-spacing: 0.1em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (min-width: 780px) {
+      .site-nav { padding: 1.5rem 4rem; }
+      .about-hero {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 4.5rem;
+        padding: 5.5rem 4rem 3rem;
+      }
+      .portrait-wrap {
+        width: 360px;
+        min-width: 320px;
+      }
+      .portrait-wrap img {
+        max-height: 500px;
+        width: 100%;
+      }
+      .about-identity { padding-top: 1rem; }
+      .approach-section { padding: 4rem 4rem; }
+      .deliverables-inner { padding: 0 2rem; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 779px) {
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #FAF8F5;
+        flex-direction: column;
+        gap: 0;
+        box-shadow: 0 4px 20px rgba(44,36,32,0.1);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a {
+        display: block;
+        padding: 1rem 2rem;
+        border-bottom: 1px solid rgba(44,36,32,0.06);
+      }
+      .site-nav { position: relative; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="site-nav" id="site-nav">
+    <a href="index.html" class="nav-logo">Soul Aligned Travels<sup>™</sup></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu">&#9776;</button>
+  </nav>
+
+  <!-- PORTRAIT + INTRO -->
+  <section class="about-hero">
+    <div class="portrait-wrap reveal">
+      <!-- REPLACE: Your professional portrait photo -->
+      <img
+        src="https://picsum.photos/seed/portrait-warm/800/1000"
+        alt="Laina Chavez — visual storyteller and founder of Soul Aligned Travels"
+        loading="lazy"
+      >
+    </div>
+    <div class="about-identity reveal">
+      <h1 class="about-name">Laina Chavez</h1>
+      <p class="about-subtitle">Visual storyteller. Founder of Soul Aligned Travels.</p>
+      <div class="rule"></div>
+      <div class="bio-text">
+        <p>I'm a visual storyteller based in Washington State, creating cinematic content for luxury stays and boutique properties.</p>
+        <p>A couple of years ago, I made a decision to rebuild my life around work that actually lights me up. I traded the career that looked right on paper for the one that felt right in my soul — and I picked up a camera.</p>
+        <p>That shift changed everything. It gave me a deep appreciation for spaces that are designed with intention, for the quiet details that make a place feel like home, and for the kind of beauty that can only be captured when you slow down long enough to really see it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MY APPROACH -->
+  <section class="approach-section">
+    <h2 class="section-heading reveal">My Approach</h2>
+    <div class="approach-text reveal">
+      <p>I don't create content that looks like an ad. I create content that feels like a moment.</p>
+      <p>Every property has something that makes it worth the trip — the way light falls through the windows at golden hour, the sound of nothing but trees and wind, the details the owner poured their heart into that guests might walk right past. My job is to make sure no one walks past them.</p>
+      <p>I work with natural light, slow pacing, and a cinematic eye to produce reels, photography, and social content that does one thing really well: make people feel something. And when people feel something, they book.</p>
+    </div>
+  </section>
+
+  <!-- WHAT I DELIVER -->
+  <section class="deliverables-section">
+    <div class="deliverables-inner">
+      <h2 class="section-heading reveal">What I Deliver</h2>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <h3 class="service-card-title">Cinematic Reels</h3>
+          <p class="service-card-desc">Short-form video that captures the soul of a space in 30–60 seconds.</p>
+        </div>
+        <div class="service-card reveal">
+          <h3 class="service-card-title">Property Films</h3>
+          <p class="service-card-desc">Longer cinematic pieces that tell a deeper story about your space and the experience it offers.</p>
+        </div>
+        <div class="service-card reveal">
+          <h3 class="service-card-title">Photography</h3>
+          <p class="service-card-desc">Warm, editorial-style images. Natural light. The kind of photos that feel like an invitation, not an advertisement.</p>
+        </div>
+        <div class="service-card reveal">
+          <h3 class="service-card-title">Social Media Content</h3>
+          <p class="service-card-desc">Ready-to-post content designed to stop the scroll and fill rooms.</p>
+        </div>
+      </div>
+      <p class="deliverables-closing reveal"><em>Based in Washington State. Always chasing good light.</em></p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="about-cta">
+    <p class="about-cta-text reveal">Let's tell the story of your space.</p>
+    <a href="contact.html" class="btn-dark reveal">Work With Me</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Soul Aligned Travels &nbsp;•&nbsp; Visual Storytelling for Luxury Stays</p>
+  </footer>
+
+  <script>
+    // Scroll shadow on nav
+    const nav = document.getElementById('site-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Mobile hamburger
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

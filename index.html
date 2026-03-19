@@ -3,518 +3,502 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Soul Aligned Travels™ — Cinematic Storytelling for Luxury Stays</title>
+  <title>Soul Aligned Travels | Cinematic Storytelling for Luxury Stays</title>
+  <meta name="description" content="Visual storytelling for luxury properties and soulful spaces. Created by Laina Chavez.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Soul Aligned Travels | Cinematic Storytelling for Luxury Stays">
+  <meta property="og:description" content="Visual storytelling for luxury properties and soulful spaces. Created by Laina Chavez.">
+  <meta property="og:image" content="https://picsum.photos/seed/luxury-cabin/1200/630">
+  <meta property="og:type" content="website">
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif'>SA</text></svg>">
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --bg:      #faf9f7;
-      --text:    #1c1b1a;
-      --accent:  #c4956a;
-      --mid:     #8a8480;
-      --light:   #c0bebb;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
-      background: var(--bg);
-      font-family: 'Barlow Condensed', sans-serif;
-      animation: fadeIn 1.2s ease forwards;
+      background: #FAF8F5;
+      color: #333333;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeIn 0.8s ease forwards;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    a { color: inherit; text-decoration: none; }
-
-    /* ── HERO — SPLIT PANEL ───────────────────────────────── */
-    .hero-split {
+    /* ── NAV ── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #FAF8F5;
       display: flex;
-      height: 100vh;
-      min-height: 560px;
-    }
-
-    /* LEFT — CONTENT PANEL */
-    .content-panel {
-      flex: 0 0 38%;
-      display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 60px 48px;
-      position: relative;
-      background: var(--bg);
-      z-index: 2;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+      transition: box-shadow 0.4s ease;
     }
+    .site-nav.scrolled { box-shadow: 0 2px 20px rgba(44,36,32,0.08); }
 
-    .logo {
-      position: absolute;
-      top: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--text);
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #2C2420;
+      text-decoration: none;
+      letter-spacing: 0.05em;
       white-space: nowrap;
     }
-    .logo sup { font-size: 8px; font-weight: 400; vertical-align: super; }
+    .nav-logo sup {
+      font-size: 0.6em;
+      vertical-align: super;
+    }
 
-    .center-block {
-      text-align: center;
+    .nav-links {
       display: flex;
-      flex-direction: column;
+      gap: 2.5rem;
       align-items: center;
-      gap: 16px;
     }
-
-    .center-block::before {
-      content: '';
-      display: block;
-      width: 32px;
-      height: 1px;
-      background: var(--accent);
-      margin-bottom: 4px;
-    }
-
-    .headline {
-      font-size: clamp(26px, 2.4vw, 38px);
-      font-weight: 600;
-      letter-spacing: 0.22em;
+    .nav-links a {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
       text-transform: uppercase;
-      color: var(--text);
-      line-height: 1.05;
+      letter-spacing: 0.18em;
+      color: #333333;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: #8B7D6B; }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: #2C2420;
+      line-height: 1;
     }
 
-    .tagline {
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--accent);
-      line-height: 1.6;
-    }
-
-    .cta-btn {
-      margin-top: 14px;
-      display: inline-block;
-      padding: 12px 36px;
-      border: 1px solid rgba(28,27,26,0.22);
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.30em;
-      text-transform: uppercase;
-      color: var(--text);
-      transition: border-color 0.25s, background 0.25s, color 0.25s;
-    }
-    .cta-btn:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #fff;
-    }
-
-    .social-row {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      align-items: center;
-      gap: 24px;
-    }
-    .social-row a {
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 560px;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--light);
-      transition: color 0.2s;
-    }
-    .social-row a:hover { color: var(--accent); }
-    .social-row svg { width: 16px; height: 16px; }
-
-    /* RIGHT — PHOTO PANEL */
-    .photo-panel {
-      flex: 1;
-      position: relative;
-      overflow: hidden;
     }
 
-    .photo-panel img {
+    /* TO USE VIDEO: Replace the hero-bg img with:
+       <video autoplay muted loop playsinline class="hero-video">
+         <source src="./assets/your-video.mp4" type="video/mp4">
+       </video>
+    */
+    .hero-bg {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center center;
-      display: block;
-      animation: slowZoom 14s ease forwards;
+      object-position: center;
     }
-
-    @keyframes slowZoom {
-      from { transform: scale(1.08); }
-      to   { transform: scale(1.0); }
-    }
-
-    .photo-panel::after {
-      content: '';
+    .hero-video {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to right, rgba(250,249,247,0.2) 0%, transparent 30%);
-      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
-
-    /* ── INTRO SECTION ────────────────────────────────────── */
-    .intro-section {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 100px 48px;
-      display: grid;
-      grid-template-columns: 1fr 1.8fr;
-      gap: 64px;
-      align-items: start;
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(44, 36, 32, 0.45);
     }
-
-    .intro-left .section-rule {
-      width: 28px;
-      height: 1px;
-      background: var(--accent);
-      margin-bottom: 20px;
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
     }
-
-    .intro-left h2 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(38px, 4vw, 56px);
-      font-weight: 600;
-      letter-spacing: 0.04em;
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 7vw, 5rem);
+      font-weight: 400;
+      color: #ffffff;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--text);
-      line-height: 1.0;
+      line-height: 1.1;
     }
-
-    .intro-right {
-      padding-top: 8px;
-    }
-
-    .intro-right p {
-      font-family: 'Barlow', sans-serif;
-      font-size: 16px;
+    .hero-sub {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(0.75rem, 2vw, 1rem);
       font-weight: 300;
-      line-height: 1.85;
-      color: rgba(28,27,26,0.62);
-      margin-bottom: 20px;
-    }
-    .intro-right p:last-child { margin-bottom: 0; }
-
-    /* ── DIVIDER ──────────────────────────────────────────── */
-    .full-divider {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 48px;
-    }
-    .full-divider hr {
-      border: none;
-      border-top: 1px solid rgba(28,27,26,0.08);
-    }
-
-    /* ── WHAT I CREATE SECTION ────────────────────────────── */
-    .services-section {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 80px 48px;
-    }
-
-    .services-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.32em;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 40px;
+    }
+    .btn-outline {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.85rem 2.5rem;
+      border: 1px solid #ffffff;
+      color: #ffffff;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.6s ease, color 0.6s ease, border-color 0.6s ease;
+    }
+    .btn-outline:hover {
+      background: #8B7D6B;
+      border-color: #8B7D6B;
     }
 
+    /* ── INTRO ── */
+    .intro {
+      padding: 6rem 2rem 5rem;
+      text-align: center;
+    }
+    .intro-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .rule {
+      width: 60px;
+      height: 1px;
+      background: #8B7D6B;
+      margin: 0 auto 2.5rem;
+    }
+    .intro-body {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      color: #333333;
+      line-height: 1.9;
+      text-align: left;
+    }
+    .intro-body p + p { margin-top: 1.4rem; }
+
+    .what-i-create {
+      margin-top: 3rem;
+      text-align: left;
+    }
+    .what-i-create-label {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: #8B7D6B;
+      margin-bottom: 1.25rem;
+    }
     .services-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0;
+      gap: 0.65rem;
     }
-
     .services-list li {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(24px, 3vw, 38px);
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--text);
-      line-height: 1;
-      padding: 22px 0;
-      border-bottom: 1px solid rgba(28,27,26,0.08);
-      display: flex;
-      align-items: center;
-      gap: 18px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: #555;
+      letter-spacing: 0.02em;
+      padding-left: 1rem;
+      position: relative;
     }
-
-    .services-list li:first-child {
-      border-top: 1px solid rgba(28,27,26,0.08);
-    }
-
     .services-list li::before {
-      content: '';
-      display: inline-block;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      flex-shrink: 0;
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: #A8B5A2;
+      font-size: 0.8rem;
     }
 
-    /* ── CLOSING CTA SECTION ──────────────────────────────── */
-    .cta-section {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 80px 48px 100px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 24px;
+    /* ── SELECTED WORK ── */
+    .selected-work {
+      padding: 4rem 2rem 5rem;
     }
-
-    .cta-heading {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(28px, 3.2vw, 46px);
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--text);
-      line-height: 1.1;
-      max-width: 560px;
-    }
-
-    .cta-sub {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 13px;
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
       font-weight: 400;
-      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--mid);
+      letter-spacing: 0.12em;
+      color: #2C2420;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .thumb-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .thumb-link {
+      display: block;
+      overflow: hidden;
+      position: relative;
+    }
+    .thumb-link::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(44,36,32,0);
+      transition: background 0.6s ease;
+    }
+    .thumb-link:hover::after {
+      background: rgba(44,36,32,0.18);
+    }
+    .thumb-link img {
+      display: block;
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .thumb-link:hover img {
+      transform: scale(1.03);
     }
 
-    /* ── FOOTER ───────────────────────────────────────────── */
-    .site-footer {
-      border-top: 1px solid rgba(28,27,26,0.08);
-      padding: 28px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
+    /* ── CTA STRIP ── */
+    .cta-strip {
+      background: #2C2420;
+      padding: 5rem 2rem;
+      text-align: center;
     }
-
-    .footer-logo {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 13px;
+    .cta-strip-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 3.5vw, 2rem);
+      font-weight: 300;
+      color: #FAF8F5;
+      max-width: 660px;
+      margin: 0 auto 0.75rem;
+      line-height: 1.5;
+    }
+    .cta-strip-sub {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: rgba(250,248,245,0.55);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 2.25rem;
+    }
+    .btn-solid {
+      display: inline-block;
+      padding: 0.9rem 2.8rem;
+      background: #8B7D6B;
+      color: #FAF8F5;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.72rem;
       font-weight: 500;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--text);
+      text-decoration: none;
+      transition: background 0.6s ease;
     }
-    .footer-logo sup { font-size: 7px; vertical-align: super; }
+    .btn-solid:hover { background: #7a6d5c; }
 
-    .footer-nav {
-      display: flex;
-      gap: 28px;
-      list-style: none;
+    /* ── FOOTER ── */
+    footer {
+      background: #2C2420;
+      border-top: 1px solid rgba(250,248,245,0.07);
+      padding: 1.75rem 2rem;
+      text-align: center;
     }
-    .footer-nav a {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 9px;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--mid);
-      transition: color 0.2s;
-    }
-    .footer-nav a:hover { color: var(--accent); }
-
-    .footer-copy {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 9px;
-      letter-spacing: 0.14em;
-      color: var(--light);
+    footer p {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: rgba(250,248,245,0.45);
+      letter-spacing: 0.1em;
     }
 
-    /* ── SCROLL REVEAL ────────────────────────────────────── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+    /* ── RESPONSIVE ── */
+    @media (min-width: 640px) {
+      .thumb-link img { height: 340px; }
     }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── MOBILE ───────────────────────────────────────────── */
-    @media (max-width: 780px) {
-      .hero-split { flex-direction: column; height: auto; min-height: 0; }
+    @media (min-width: 780px) {
+      .site-nav { padding: 1.5rem 4rem; }
+      .thumb-grid { grid-template-columns: repeat(3, 1fr); }
+      .thumb-link img { height: 320px; }
+    }
 
-      .photo-panel {
-        order: -1;
-        height: 60vw;
-        min-height: 260px;
-        flex: none;
+    @media (max-width: 779px) {
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #FAF8F5;
+        flex-direction: column;
+        gap: 0;
+        box-shadow: 0 4px 20px rgba(44,36,32,0.1);
       }
-      .photo-panel::after {
-        background: linear-gradient(to bottom, transparent 0%, rgba(250,249,247,0.25) 100%);
+      .nav-links.open { display: flex; }
+      .nav-links a {
+        display: block;
+        padding: 1rem 2rem;
+        border-bottom: 1px solid rgba(44,36,32,0.06);
       }
-
-      .content-panel {
-        flex: none;
-        min-height: 56vw;
-        padding: 60px 28px 88px;
-      }
-
-      .logo { top: 28px; font-size: 12px; }
-      .headline { font-size: 24px; }
-      .social-row { bottom: 28px; }
-
-      .intro-section { grid-template-columns: 1fr; gap: 28px; padding: 64px 24px; }
-      .full-divider { padding: 0 24px; }
-      .services-section { padding: 60px 24px; }
-      .cta-section { padding: 60px 24px 72px; }
-      .site-footer { flex-direction: column; align-items: flex-start; gap: 16px; padding: 24px; }
-      .footer-nav { flex-wrap: wrap; gap: 14px; }
-    }
-
-    @media (max-width: 420px) {
-      .photo-panel { height: 72vw; }
+      .site-nav { position: relative; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ── HERO ── -->
-  <div class="hero-split">
+  <!-- NAVIGATION -->
+  <nav class="site-nav" id="site-nav">
+    <a href="index.html" class="nav-logo">Soul Aligned Travels<sup>™</sup></a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu">&#9776;</button>
+  </nav>
 
-    <div class="content-panel">
-      <a class="logo" href="index.html">Soul Aligned Travels<sup>™</sup></a>
+  <!-- HERO -->
+  <section class="hero">
+    <!-- REPLACE: Your strongest hero image or .mp4 video file — e.g., ./assets/hero.mp4 -->
+    <!-- TO USE VIDEO: Replace the hero-bg img with:
+         <video autoplay muted loop playsinline class="hero-video">
+           <source src="./assets/your-video.mp4" type="video/mp4">
+         </video>
+    -->
+    <img
+      src="https://picsum.photos/seed/luxury-cabin/1920/1080"
+      alt="Cinematic hero — luxury property"
+      class="hero-bg"
+    >
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Soul Aligned Travels</h1>
+      <p class="hero-sub">Cinematic storytelling for luxury stays.</p>
+      <a href="portfolio.html" class="btn-outline">View My Work</a>
+    </div>
+  </section>
 
-      <div class="center-block">
-        <h1 class="headline">Soul Aligned<br>Travels<sup style="font-size:0.45em; vertical-align:super;">™</sup></h1>
-        <p class="tagline">Cinematic storytelling<br>for luxury stays.</p>
-        <a class="cta-btn" href="projects.html">View My Work</a>
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="intro-inner">
+      <div class="rule reveal"></div>
+      <div class="intro-body reveal">
+        <p>Every stay has a story.</p>
+        <p>I create cinematic visual content for boutique hotels, luxury cabins, and one-of-a-kind properties. The kind of imagery that makes someone stop scrolling and start booking.</p>
+        <p>Through intentional filmmaking and soulful photography, I capture the feeling of being there — the light through the window, the quiet of the morning, the details that make a place unforgettable.</p>
       </div>
-
-      <div class="social-row">
-        <!-- Instagram — REPLACE href with your @SoulAlignedTravels URL -->
-        <a href="https://instagram.com/soulalignedtravels" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-            <circle cx="12" cy="12" r="4"/>
-            <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
-          </svg>
-        </a>
-        <!-- Facebook -->
-        <a href="#" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-          </svg>
-        </a>
-        <!-- Portfolio link -->
-        <a href="projects.html" aria-label="View Portfolio">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
-          </svg>
-        </a>
+      <div class="what-i-create reveal">
+        <p class="what-i-create-label">What I Create</p>
+        <ul class="services-list">
+          <li>Cinematic property reels that tell a visual story.</li>
+          <li>Lifestyle photography that captures the soul of a space.</li>
+          <li>Social-ready content designed to drive bookings.</li>
+        </ul>
       </div>
     </div>
+  </section>
 
-    <!-- REPLACE: Your hero photo — swap src with images/hero.jpg -->
-    <div class="photo-panel">
-      <img
-        src="https://picsum.photos/seed/luxury-cabin-forest/1400/1000"
-        alt="Soul Aligned Travels — Cinematic storytelling for luxury stays"
-      >
-    </div>
-
-  </div>
-
-  <!-- ── INTRO ── -->
-  <section class="intro-section reveal">
-    <div class="intro-left">
-      <div class="section-rule"></div>
-      <h2>Every stay<br>has a<br>story.</h2>
-    </div>
-    <div class="intro-right">
-      <p>
-        I create cinematic visual content for boutique hotels, luxury cabins, and one-of-a-kind properties. The kind of imagery that makes someone stop scrolling and start booking.
-      </p>
-      <p>
-        Through intentional filmmaking and soulful photography, I capture the feeling of being there — the light through the window, the quiet of the morning, the details that make a place unforgettable.
-      </p>
+  <!-- SELECTED WORK -->
+  <section class="selected-work">
+    <h2 class="section-title reveal">Selected Work</h2>
+    <div class="thumb-grid">
+      <a href="portfolio.html" class="thumb-link reveal">
+        <!-- REPLACE: Thumbnail 1 — portfolio preview image -->
+        <img
+          src="https://picsum.photos/seed/luxury-1/600/400"
+          alt="Portfolio preview — luxury property 1"
+          loading="lazy"
+        >
+      </a>
+      <a href="portfolio.html" class="thumb-link reveal">
+        <!-- REPLACE: Thumbnail 2 — portfolio preview image -->
+        <img
+          src="https://picsum.photos/seed/luxury-2/600/400"
+          alt="Portfolio preview — luxury property 2"
+          loading="lazy"
+        >
+      </a>
+      <a href="portfolio.html" class="thumb-link reveal">
+        <!-- REPLACE: Thumbnail 3 — portfolio preview image -->
+        <img
+          src="https://picsum.photos/seed/luxury-3/600/400"
+          alt="Portfolio preview — luxury property 3"
+          loading="lazy"
+        >
+      </a>
     </div>
   </section>
 
-  <div class="full-divider"><hr></div>
-
-  <!-- ── WHAT I CREATE ── -->
-  <section class="services-section reveal">
-    <p class="services-label">What I Create</p>
-    <ul class="services-list">
-      <li>Cinematic property reels that tell a visual story.</li>
-      <li>Lifestyle photography that captures the soul of a space.</li>
-      <li>Social-ready content designed to drive bookings.</li>
-    </ul>
+  <!-- CTA STRIP -->
+  <section class="cta-strip">
+    <p class="cta-strip-text reveal">Ready to show the world what makes your property unforgettable?</p>
+    <p class="cta-strip-sub reveal">Let's work together.</p>
+    <a href="contact.html" class="btn-solid reveal">Get In Touch</a>
   </section>
 
-  <div class="full-divider"><hr></div>
-
-  <!-- ── CLOSING CTA ── -->
-  <section class="cta-section reveal">
-    <h2 class="cta-heading">Ready to show the world what makes your property unforgettable?</h2>
-    <p class="cta-sub">Let's work together.</p>
-    <a class="cta-btn" href="project.html#contact">Get In Touch</a>
-  </section>
-
-  <!-- ── FOOTER ── -->
-  <footer class="site-footer">
-    <span class="footer-logo">Soul Aligned Travels<sup>™</sup></span>
-    <nav>
-      <ul class="footer-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">Work</a></li>
-        <li><a href="project.html#about">About</a></li>
-        <li><a href="project.html#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <p class="footer-copy">© 2026 Soul Aligned Travels &nbsp;•&nbsp; Visual Storytelling for Luxury Stays</p>
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Soul Aligned Travels &nbsp;•&nbsp; Visual Storytelling for Luxury Stays</p>
   </footer>
 
   <script>
+    // Scroll shadow on nav
+    const nav = document.getElementById('site-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Mobile hamburger
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+          entry.target.classList.add('revealed');
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    reveals.forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.1}s`;
-      observer.observe(el);
-    });
+    }, { threshold: 0.15 });
+    reveals.forEach(el => observer.observe(el));
   </script>
-
 </body>
 </html>

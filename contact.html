@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Soul Aligned Travels</title>
+  <meta name="description" content="Visual storytelling for luxury properties and soulful spaces. Created by Laina Chavez.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Soul Aligned Travels | Cinematic Storytelling for Luxury Stays">
+  <meta property="og:description" content="Visual storytelling for luxury properties and soulful spaces. Created by Laina Chavez.">
+  <meta property="og:image" content="https://picsum.photos/seed/luxury-cabin/1200/630">
+  <meta property="og:type" content="website">
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif'>SA</text></svg>">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #FAF8F5;
+      color: #333333;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── NAV ── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #FAF8F5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+      transition: box-shadow 0.4s ease;
+    }
+    .site-nav.scrolled { box-shadow: 0 2px 20px rgba(44,36,32,0.08); }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #2C2420;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+    .nav-logo sup {
+      font-size: 0.6em;
+      vertical-align: super;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .nav-links a {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #333333;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: #8B7D6B; }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: #2C2420;
+      line-height: 1;
+    }
+
+    /* ── CONTACT HEADER ── */
+    .contact-header {
+      padding: 5rem 2rem 3.5rem;
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .contact-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 5.5vw, 3.6rem);
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #2C2420;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+    .contact-subtext {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: #666;
+      line-height: 1.8;
+      letter-spacing: 0.02em;
+    }
+    .rule {
+      width: 60px;
+      height: 1px;
+      background: #8B7D6B;
+      margin: 2.5rem auto 0;
+    }
+
+    /* ── FORM ── */
+    .contact-form-section {
+      padding: 3.5rem 2rem 5rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* REPLACE YOUR_FORM_ID with your actual Formspree form ID */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    label {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #8B7D6B;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(44,36,32,0.2);
+      padding: 0.6rem 0;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: #333;
+      outline: none;
+      border-radius: 0;
+      transition: border-color 0.4s ease;
+      width: 100%;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    select:focus,
+    textarea:focus {
+      border-bottom-color: #8B7D6B;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(51,51,51,0.3);
+      font-weight: 300;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+      line-height: 1.7;
+    }
+
+    select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238B7D6B' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.25rem center;
+      padding-right: 1.5rem;
+      color: #333;
+    }
+
+    select option[value=""] { color: rgba(51,51,51,0.4); }
+
+    .btn-submit {
+      display: block;
+      width: 100%;
+      padding: 1.1rem 2rem;
+      background: #2C2420;
+      color: #FAF8F5;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background 0.6s ease;
+      margin-top: 0.5rem;
+    }
+    .btn-submit:hover { background: #8B7D6B; }
+
+    /* ── BELOW FORM ── */
+    .contact-links {
+      text-align: center;
+      padding: 3rem 2rem 5rem;
+      border-top: 1px solid rgba(44,36,32,0.08);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .contact-links-label {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: #8B7D6B;
+      margin-bottom: 1.5rem;
+    }
+    .contact-links-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    .contact-links-list a {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: #333;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.3s ease;
+    }
+    .contact-links-list a:hover { color: #8B7D6B; }
+    .contact-links-list .link-label {
+      font-size: 0.62rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #A8B5A2;
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #2C2420;
+      border-top: 1px solid rgba(250,248,245,0.07);
+      padding: 1.75rem 2rem;
+      text-align: center;
+    }
+    footer p {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: rgba(250,248,245,0.45);
+      letter-spacing: 0.1em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (min-width: 600px) {
+      .form-row {
+        grid-template-columns: 1fr 1fr;
+      }
+      .btn-submit {
+        width: auto;
+        display: inline-block;
+      }
+    }
+
+    @media (min-width: 780px) {
+      .site-nav { padding: 1.5rem 4rem; }
+    }
+
+    @media (max-width: 779px) {
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #FAF8F5;
+        flex-direction: column;
+        gap: 0;
+        box-shadow: 0 4px 20px rgba(44,36,32,0.1);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a {
+        display: block;
+        padding: 1rem 2rem;
+        border-bottom: 1px solid rgba(44,36,32,0.06);
+      }
+      .site-nav { position: relative; }
+      .btn-submit { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="site-nav" id="site-nav">
+    <a href="index.html" class="nav-logo">Soul Aligned Travels<sup>™</sup></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu">&#9776;</button>
+  </nav>
+
+  <!-- CONTACT HEADER -->
+  <header class="contact-header">
+    <h1 class="contact-title reveal">Let's Create Something Beautiful</h1>
+    <p class="contact-subtext reveal">Tell me about your property and what you're looking for. I'll be in touch within 48 hours.</p>
+    <div class="rule reveal"></div>
+  </header>
+
+  <!-- FORM -->
+  <section class="contact-form-section">
+    <!-- REPLACE YOUR_FORM_ID with your actual Formspree form ID -->
+    <form
+      action="https://formspree.io/f/YOUR_FORM_ID"
+      method="POST"
+      class="reveal"
+    >
+      <!-- Name + Email -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your name"
+            required
+            autocomplete="name"
+          >
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="your@email.com"
+            required
+            autocomplete="email"
+          >
+        </div>
+      </div>
+
+      <!-- Property Name + Location -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="property-name">Property Name</label>
+          <input
+            type="text"
+            id="property-name"
+            name="property_name"
+            placeholder="The name of your property"
+          >
+        </div>
+        <div class="form-group">
+          <label for="property-location">Property Location</label>
+          <input
+            type="text"
+            id="property-location"
+            name="property_location"
+            placeholder="City, State"
+          >
+        </div>
+      </div>
+
+      <!-- Website / Instagram -->
+      <div class="form-group">
+        <label for="property-web">Property Website or Instagram</label>
+        <input
+          type="text"
+          id="property-web"
+          name="property_web"
+          placeholder="Optional — website URL or @handle"
+        >
+      </div>
+
+      <!-- What are you looking for -->
+      <div class="form-group">
+        <label for="message">What Are You Looking For?</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          placeholder="Tell me about your project — what you need, your timeline, any goals you have in mind..."
+        ></textarea>
+      </div>
+
+      <!-- How did you find me -->
+      <div class="form-group">
+        <label for="source">How Did You Find Me?</label>
+        <select id="source" name="source">
+          <option value="">Select one (optional)</option>
+          <option value="Instagram">Instagram</option>
+          <option value="Referral">Referral</option>
+          <option value="Search">Search</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="btn-submit">Send It Over</button>
+    </form>
+  </section>
+
+  <!-- BELOW FORM: SOCIAL / EMAIL -->
+  <section class="contact-links reveal">
+    <p class="contact-links-label">Follow the journey</p>
+    <div class="contact-links-list">
+      <div>
+        <span class="link-label">Instagram</span>
+        <a
+          href="https://instagram.com/SoulAlignedTravels"
+          target="_blank"
+          rel="noopener noreferrer"
+        >@SoulAlignedTravels</a>
+      </div>
+      <div>
+        <span class="link-label">Email</span>
+        <a href="mailto:hello@soulalignedtravels.com">hello@soulalignedtravels.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Soul Aligned Travels &nbsp;•&nbsp; Visual Storytelling for Luxury Stays</p>
+  </footer>
+
+  <script>
+    // Scroll shadow on nav
+    const nav = document.getElementById('site-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Mobile hamburger
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

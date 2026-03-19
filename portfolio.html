@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Soul Aligned Travels</title>
+  <meta name="description" content="Visual storytelling for luxury properties and soulful spaces. Created by Laina Chavez.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Soul Aligned Travels | Cinematic Storytelling for Luxury Stays">
+  <meta property="og:description" content="Visual storytelling for luxury properties and soulful spaces. Created by Laina Chavez.">
+  <meta property="og:image" content="https://picsum.photos/seed/luxury-cabin/1200/630">
+  <meta property="og:type" content="website">
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif'>SA</text></svg>">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #FAF8F5;
+      color: #333333;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── NAV ── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #FAF8F5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+      transition: box-shadow 0.4s ease;
+    }
+    .site-nav.scrolled { box-shadow: 0 2px 20px rgba(44,36,32,0.08); }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #2C2420;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+    .nav-logo sup {
+      font-size: 0.6em;
+      vertical-align: super;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .nav-links a {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #333333;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: #8B7D6B; }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: #2C2420;
+      line-height: 1;
+    }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: 5rem 2rem 3.5rem;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .page-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #2C2420;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+    .page-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 300;
+      color: #8B7D6B;
+      line-height: 1.7;
+      letter-spacing: 0.02em;
+    }
+    .header-rule {
+      width: 60px;
+      height: 1px;
+      background: #8B7D6B;
+      margin: 2.5rem auto 0;
+    }
+
+    /* ── GALLERY ── */
+    .gallery {
+      padding: 3rem 2rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .project-block {
+      margin-bottom: 5.5rem;
+    }
+    .project-block:last-child { margin-bottom: 2rem; }
+
+    .project-img-wrap {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project-img-wrap img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 680px;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+    .project-img-wrap:hover img {
+      transform: scale(1.02);
+    }
+
+    .project-meta {
+      padding: 1.75rem 0 0;
+    }
+
+    .project-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-weight: 400;
+      color: #2C2420;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.35rem;
+    }
+
+    .project-caption {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #8B7D6B;
+      margin-bottom: 1rem;
+    }
+
+    .project-desc {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.85;
+      max-width: 660px;
+    }
+
+    .project-desc em {
+      font-style: italic;
+      color: #8B7D6B;
+    }
+
+    .project-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(44,36,32,0.08);
+      margin: 5rem 0 0;
+    }
+    .project-block:last-child .project-divider { display: none; }
+
+    /* ── CTA ── */
+    .portfolio-cta {
+      background: #FAF8F5;
+      border-top: 1px solid rgba(44,36,32,0.08);
+      padding: 5.5rem 2rem;
+      text-align: center;
+    }
+    .portfolio-cta-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 3vw, 1.9rem);
+      font-weight: 300;
+      color: #2C2420;
+      max-width: 600px;
+      margin: 0 auto 0.75rem;
+      line-height: 1.5;
+    }
+    .portfolio-cta-sub {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: #8B7D6B;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 2.25rem;
+    }
+    .btn-dark {
+      display: inline-block;
+      padding: 0.9rem 2.8rem;
+      background: #2C2420;
+      color: #FAF8F5;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.6s ease;
+    }
+    .btn-dark:hover { background: #8B7D6B; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #2C2420;
+      border-top: 1px solid rgba(250,248,245,0.07);
+      padding: 1.75rem 2rem;
+      text-align: center;
+    }
+    footer p {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: rgba(250,248,245,0.45);
+      letter-spacing: 0.1em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (min-width: 780px) {
+      .site-nav { padding: 1.5rem 4rem; }
+      .gallery { padding: 3rem 4rem 2rem; }
+      .project-img-wrap img { max-height: 720px; }
+    }
+
+    @media (max-width: 779px) {
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #FAF8F5;
+        flex-direction: column;
+        gap: 0;
+        box-shadow: 0 4px 20px rgba(44,36,32,0.1);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a {
+        display: block;
+        padding: 1rem 2rem;
+        border-bottom: 1px solid rgba(44,36,32,0.06);
+      }
+      .site-nav { position: relative; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="site-nav" id="site-nav">
+    <a href="index.html" class="nav-logo">Soul Aligned Travels<sup>™</sup></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu">&#9776;</button>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <h1 class="page-title reveal">The Work</h1>
+    <p class="page-subtitle reveal">A collection of cinematic stories created for luxury properties and soulful spaces.</p>
+    <div class="header-rule reveal"></div>
+  </header>
+
+  <!-- GALLERY -->
+  <main class="gallery">
+
+    <!-- Project 1: Joshua Tree -->
+    <article class="project-block reveal">
+      <div class="project-img-wrap">
+        <!-- REPLACE: Joshua Tree Retreat hero image — wide desert landscape with minimalist cabin -->
+        <img
+          src="https://picsum.photos/seed/joshua-tree/1200/800"
+          alt="Joshua Tree Retreat — minimalist desert escape"
+          loading="lazy"
+        >
+      </div>
+      <div class="project-meta">
+        <p class="project-caption">Joshua Tree, California</p>
+        <h2 class="project-title">Joshua Tree Retreat</h2>
+        <p class="project-desc">A minimalist desert escape where the landscape is the luxury. I captured the interplay of natural light, open sky, and intentional design — content built to make a viewer feel the stillness of the desert before they ever arrive.</p>
+      </div>
+      <div class="project-divider"></div>
+    </article>
+
+    <!-- Project 2: Mount Rainier -->
+    <article class="project-block reveal">
+      <div class="project-img-wrap">
+        <!-- REPLACE: Mount Rainier cabin hero image — forested cabin exterior or interior with warm light -->
+        <img
+          src="https://picsum.photos/seed/rainier-cabin/1200/800"
+          alt="Luxury Cabin — Mount Rainier, Washington"
+          loading="lazy"
+        >
+      </div>
+      <div class="project-meta">
+        <p class="project-caption">Mount Rainier, Washington</p>
+        <h2 class="project-title">Luxury Cabin — Mount Rainier</h2>
+        <p class="project-desc">A secluded cabin framed by old-growth forest and mountain air. I filmed the quiet details — morning fog on the deck, firelight on wood, the kind of moments that make someone say: I need to be there.</p>
+      </div>
+      <div class="project-divider"></div>
+    </article>
+
+    <!-- Project 3: Coastal Retreat -->
+    <article class="project-block reveal">
+      <div class="project-img-wrap">
+        <!-- REPLACE: Coastal Retreat — Pacific Northwest coast property image -->
+        <img
+          src="https://picsum.photos/seed/coastal-villa/1200/800"
+          alt="Coastal Retreat — Pacific Northwest"
+          loading="lazy"
+        >
+      </div>
+      <div class="project-meta">
+        <p class="project-caption">Pacific Northwest</p>
+        <h2 class="project-title">Coastal Retreat</h2>
+        <p class="project-desc em"><em>Description coming soon.</em></p>
+      </div>
+      <div class="project-divider"></div>
+    </article>
+
+    <!-- Project 4: Desert Villa -->
+    <article class="project-block reveal">
+      <div class="project-img-wrap">
+        <!-- REPLACE: Desert Villa — Scottsdale Arizona luxury property image -->
+        <img
+          src="https://picsum.photos/seed/desert-retreat/1200/800"
+          alt="Desert Villa — Scottsdale, Arizona"
+          loading="lazy"
+        >
+      </div>
+      <div class="project-meta">
+        <p class="project-caption">Scottsdale, Arizona</p>
+        <h2 class="project-title">Desert Villa</h2>
+        <p class="project-desc em"><em>Description coming soon.</em></p>
+      </div>
+      <div class="project-divider"></div>
+    </article>
+
+    <!-- Project 5: Mountain Lodge -->
+    <article class="project-block reveal">
+      <div class="project-img-wrap">
+        <!-- REPLACE: Mountain Lodge — Colorado Rockies luxury lodge image -->
+        <img
+          src="https://picsum.photos/seed/mountain-lodge/1200/800"
+          alt="Mountain Lodge — Colorado Rockies"
+          loading="lazy"
+        >
+      </div>
+      <div class="project-meta">
+        <p class="project-caption">Colorado Rockies</p>
+        <h2 class="project-title">Mountain Lodge</h2>
+        <p class="project-desc em"><em>Description coming soon.</em></p>
+      </div>
+      <div class="project-divider"></div>
+    </article>
+
+    <!-- Project 6: Boutique Hotel -->
+    <article class="project-block reveal">
+      <div class="project-img-wrap">
+        <!-- REPLACE: Boutique Hotel — Portland Oregon stylish hotel image -->
+        <img
+          src="https://picsum.photos/seed/boutique-hotel/1200/800"
+          alt="Boutique Hotel — Portland, Oregon"
+          loading="lazy"
+        >
+      </div>
+      <div class="project-meta">
+        <p class="project-caption">Portland, Oregon</p>
+        <h2 class="project-title">Boutique Hotel</h2>
+        <p class="project-desc em"><em>Description coming soon.</em></p>
+      </div>
+      <div class="project-divider"></div>
+    </article>
+
+  </main>
+
+  <!-- CTA -->
+  <section class="portfolio-cta">
+    <p class="portfolio-cta-text reveal">Have a property that deserves to be seen like this?</p>
+    <p class="portfolio-cta-sub reveal">Let's create something together.</p>
+    <a href="contact.html" class="btn-dark reveal">Get In Touch</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Soul Aligned Travels &nbsp;•&nbsp; Visual Storytelling for Luxury Stays</p>
+  </footer>
+
+  <script>
+    // Scroll shadow on nav
+    const nav = document.getElementById('site-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Mobile hamburger
+    const toggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
