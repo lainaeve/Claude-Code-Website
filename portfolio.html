@@ -199,6 +199,30 @@
       color: #8B7D6B;
     }
 
+    .project-title a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .project-title a:hover { color: #8B7D6B; }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 1.25rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: #8B7D6B;
+      text-decoration: none;
+      transition: color 0.3s ease, letter-spacing 0.3s ease;
+    }
+    .project-link:hover {
+      color: #2C2420;
+      letter-spacing: 0.28em;
+    }
+
     .project-divider {
       width: 100%;
       height: 1px;
@@ -318,36 +342,38 @@
 
     <!-- Project 1: Joshua Tree -->
     <article class="project-block reveal">
-      <div class="project-img-wrap">
+      <a href="joshua-tree.html" class="project-img-wrap">
         <!-- REPLACE: Joshua Tree Retreat hero image — wide desert landscape with minimalist cabin -->
         <img
           src="https://picsum.photos/seed/joshua-tree/1200/800"
           alt="Joshua Tree Retreat — minimalist desert escape"
           loading="lazy"
         >
-      </div>
+      </a>
       <div class="project-meta">
         <p class="project-caption">Joshua Tree, California</p>
-        <h2 class="project-title">Joshua Tree Retreat</h2>
+        <h2 class="project-title"><a href="joshua-tree.html">Joshua Tree Retreat</a></h2>
         <p class="project-desc">A minimalist desert escape where the landscape is the luxury. I captured the interplay of natural light, open sky, and intentional design — content built to make a viewer feel the stillness of the desert before they ever arrive.</p>
+        <a href="joshua-tree.html" class="project-link">View Project &nbsp;&#8594;</a>
       </div>
       <div class="project-divider"></div>
     </article>
 
     <!-- Project 2: Mount Rainier -->
     <article class="project-block reveal">
-      <div class="project-img-wrap">
+      <a href="mount-rainier.html" class="project-img-wrap">
         <!-- REPLACE: Mount Rainier cabin hero image — forested cabin exterior or interior with warm light -->
         <img
           src="https://picsum.photos/seed/rainier-cabin/1200/800"
           alt="Luxury Cabin — Mount Rainier, Washington"
           loading="lazy"
         >
-      </div>
+      </a>
       <div class="project-meta">
         <p class="project-caption">Mount Rainier, Washington</p>
-        <h2 class="project-title">Luxury Cabin — Mount Rainier</h2>
+        <h2 class="project-title"><a href="mount-rainier.html">Luxury Cabin — Mount Rainier</a></h2>
         <p class="project-desc">A secluded cabin framed by old-growth forest and mountain air. I filmed the quiet details — morning fog on the deck, firelight on wood, the kind of moments that make someone say: I need to be there.</p>
+        <a href="mount-rainier.html" class="project-link">View Project &nbsp;&#8594;</a>
       </div>
       <div class="project-divider"></div>
     </article>
