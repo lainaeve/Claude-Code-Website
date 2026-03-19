@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joshua Tree Retreat — Soul Aligned Travels™</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Barlow:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #faf9f7;
+      --bg-alt:  #f0eeeb;
+      --bg-nav:  rgba(250,249,247,0.96);
+      --text:    #1c1b1a;
+      --accent:  #c4956a;
+      --mid:     #8a8480;
+      --light:   #c0bebb;
+      --nav-h:   58px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      animation: fadeIn 0.9s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── HEADER ──────────────────────────────────────────────── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-nav);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 36px;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+
+    .site-header.scrolled {
+      border-bottom-color: rgba(28,27,26,0.08);
+    }
+
+    .site-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text);
+      white-space: nowrap;
+    }
+    .site-logo sup { font-size: 7px; vertical-align: super; }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .site-nav a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .site-nav a:hover,
+    .site-nav a.active { color: var(--accent); }
+
+    .mobile-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .mobile-toggle span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--text);
+    }
+
+    /* ── HERO BANNER ─────────────────────────────────────────── */
+    .hero {
+      width: 100%;
+      overflow: hidden;
+      height: clamp(340px, 58vw, 760px);
+      position: relative;
+      background: #111;
+    }
+
+    /* REPLACE: Your project hero photo — swap src with images/sacred-bali/hero.jpg */
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+      filter: brightness(0.75);
+      transform: scale(1.04);
+      animation: heroZoom 1.4s cubic-bezier(0.25,0.46,0.45,0.94) forwards;
+    }
+
+    @keyframes heroZoom {
+      from { transform: scale(1.08); opacity: 0.6; }
+      to   { transform: scale(1.0); opacity: 1; }
+    }
+
+    /* Hero title overlay */
+    .hero-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 80px 48px 44px;
+      background: linear-gradient(to top, rgba(26,26,26,0.72) 0%, transparent 100%);
+    }
+
+    .hero-category {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .hero-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(42px, 6vw, 82px);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 1;
+    }
+
+    /* ── PAGE CONTENT ────────────────────────────────────────── */
+    .page-content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 56px 36px 0;
+    }
+
+    .project-breadcrumb {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 22px;
+    }
+
+    .project-breadcrumb a {
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .project-breadcrumb a:hover { color: var(--accent); }
+
+    .project-description {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: rgba(28,27,26,0.6);
+      max-width: 620px;
+    }
+
+    /* ── GALLERY ─────────────────────────────────────────────── */
+    .gallery-wrap {
+      max-width: 860px;
+      margin: 52px auto 0;
+      padding: 0 36px;
+    }
+
+    .gallery-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 18px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      background: var(--bg-alt);
+      aspect-ratio: 3 / 4;
+    }
+
+    /* REPLACE: Gallery photos — swap each src with images/sacred-bali/photo-1.jpg etc. */
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.88);
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  filter 0.35s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+      filter: brightness(0.7);
+    }
+
+    .gallery-item-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+
+    .gallery-item-overlay svg {
+      width: 28px;
+      height: 28px;
+      color: rgba(245,240,235,0.8);
+    }
+
+    /* Scroll reveal for gallery items */
+    .gallery-item {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.55s ease, transform 0.55s ease,
+                  /* keep hover transitions too */
+                  filter 0.35s ease;
+    }
+    .gallery-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* override to preserve hover scale when visible */
+    .gallery-item.visible img {
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  filter 0.35s ease;
+    }
+
+    /* ── LIGHTBOX ────────────────────────────────────────────── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(10,10,10,0.96);
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox.active { display: flex; }
+
+    .lightbox-img {
+      max-width: 88vw;
+      max-height: 88vh;
+      object-fit: contain;
+      display: block;
+      border: none;
+    }
+
+    .lb-btn {
+      position: fixed;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(245,240,235,0.5);
+      transition: color 0.2s;
+    }
+    .lb-btn:hover { color: var(--accent); }
+
+    .lb-close {
+      top: 22px; right: 28px;
+      width: 44px; height: 44px;
+    }
+    .lb-prev { top: 50%; left: 24px; transform: translateY(-50%); width: 56px; height: 56px; }
+    .lb-next { top: 50%; right: 24px; transform: translateY(-50%); width: 56px; height: 56px; }
+
+    /* ── DIVIDER ─────────────────────────────────────────────── */
+    .divider {
+      max-width: 860px;
+      margin: 80px auto 0;
+      padding: 0 36px;
+    }
+    .divider hr {
+      border: none;
+      border-top: 1px solid rgba(28,27,26,0.08);
+    }
+
+    /* ── ABOUT SECTION ───────────────────────────────────────── */
+    .about-section {
+      max-width: 860px;
+      margin: 80px auto 0;
+      padding: 0 36px;
+      display: grid;
+      grid-template-columns: 1fr 1.8fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .about-left .section-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+
+    .about-left h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: clamp(36px, 3.8vw, 54px);
+      letter-spacing: 0.04em;
+      line-height: 1.0;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .about-right p {
+      font-family: 'Barlow', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.9;
+      color: rgba(28,27,26,0.6);
+      margin-bottom: 20px;
+    }
+    .about-right p:last-child { margin-bottom: 0; }
+
+    /* ── CATEGORIES SECTION ──────────────────────────────────── */
+    .categories-wrap {
+      max-width: 860px;
+      margin: 72px auto 0;
+      padding: 0 36px;
+    }
+
+    .categories-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .categories-header h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    .categories-header span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      color: var(--light);
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+    }
+
+    .cat-item {
+      position: relative;
+      aspect-ratio: 2/3;
+      overflow: hidden;
+      cursor: pointer;
+      background: var(--bg-alt);
+    }
+
+    /* REPLACE: Category photos — swap each src with images/categories/temples.jpg etc. */
+    .cat-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.62);
+      transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  filter 0.35s ease;
+    }
+
+    .cat-item:hover img {
+      transform: scale(1.07);
+      filter: brightness(0.45);
+    }
+
+    .cat-label {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 16px 14px;
+      background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 55%);
+    }
+
+    .cat-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .cat-sub {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────────── */
+    footer {
+      margin-top: 100px;
+      border-top: 1px solid rgba(28,27,26,0.08);
+      padding: 40px 36px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .footer-logo sup { font-size: 7px; vertical-align: super; }
+
+    .footer-nav {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .footer-nav a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .footer-nav a:hover { color: var(--accent); }
+
+    .footer-copy {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      color: var(--light);
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────────────── */
+    @media (max-width: 720px) {
+      .site-nav { display: none; }
+      .mobile-toggle { display: flex; }
+      .site-header { padding: 0 20px; }
+
+      .hero { height: 72vw; }
+      .hero-overlay { padding: 50px 20px 28px; }
+
+      .page-content, .gallery-wrap, .about-section,
+      .divider, .categories-wrap { padding: 0 16px; }
+
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 3px; }
+
+      .about-section { grid-template-columns: 1fr; gap: 28px; margin-top: 60px; }
+
+      .categories-grid { grid-template-columns: repeat(2, 1fr); }
+
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        padding: 28px 16px;
+        margin-top: 60px;
+      }
+      .footer-nav { flex-wrap: wrap; gap: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header" id="siteHeader">
+    <a href="index.html" class="site-logo">Soul Aligned Travels<sup>™</sup></a>
+    <nav>
+      <ul class="site-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html" class="active">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-toggle" id="mobileToggle">
+      <span></span><span></span><span></span>
+    </div>
+  </header>
+
+  <!-- HERO BANNER -->
+  <!-- REPLACE: Your project hero photo — swap src with images/joshua-tree/hero.jpg -->
+  <div class="hero">
+    <img
+      src="https://picsum.photos/seed/joshua-tree-hero/1800/960"
+      alt="Joshua Tree Retreat — Desert & Landscape"
+    >
+    <div class="hero-overlay">
+      <p class="hero-category">Desert &amp; Landscape</p>
+      <h1 class="hero-title">Joshua Tree Retreat</h1>
+    </div>
+  </div>
+
+  <!-- PAGE CONTENT -->
+  <div class="page-content">
+    <p class="project-breadcrumb">
+      <a href="projects.html">Work</a>
+      &nbsp;/&nbsp;
+      Joshua Tree Retreat
+    </p>
+    <p class="project-description">
+      A minimalist desert escape where the landscape is the luxury. I captured the interplay of natural light, open sky, and intentional design — content built to make a viewer feel the stillness of the desert before they ever arrive.
+    </p>
+  </div>
+
+  <!-- GALLERY -->
+  <div class="gallery-wrap" id="gallery">
+    <p class="gallery-label">From the Shoot</p>
+    <div class="gallery-grid" id="galleryGrid">
+
+      <!-- REPLACE: Photo 1 — swap src with images/sacred-bali/photo-1.jpg -->
+      <div class="gallery-item" data-index="0">
+        <img src="https://picsum.photos/seed/bali-g1/600/800" alt="Sacred Bali Photo 1">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- REPLACE: Photo 2 — swap src with images/sacred-bali/photo-2.jpg -->
+      <div class="gallery-item" data-index="1">
+        <img src="https://picsum.photos/seed/bali-g2/600/800" alt="Sacred Bali Photo 2">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- REPLACE: Photo 3 — swap src with images/sacred-bali/photo-3.jpg -->
+      <div class="gallery-item" data-index="2">
+        <img src="https://picsum.photos/seed/bali-g3/600/800" alt="Sacred Bali Photo 3">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- REPLACE: Photo 4 — swap src with images/sacred-bali/photo-4.jpg -->
+      <div class="gallery-item" data-index="3">
+        <img src="https://picsum.photos/seed/bali-g4/600/800" alt="Sacred Bali Photo 4">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- REPLACE: Photo 5 — swap src with images/sacred-bali/photo-5.jpg -->
+      <div class="gallery-item" data-index="4">
+        <img src="https://picsum.photos/seed/bali-g5/600/800" alt="Sacred Bali Photo 5">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- REPLACE: Photo 6 — swap src with images/sacred-bali/photo-6.jpg -->
+      <div class="gallery-item" data-index="5">
+        <img src="https://picsum.photos/seed/bali-g6/600/800" alt="Sacred Bali Photo 6">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- REPLACE: Photo 7 — swap src with images/sacred-bali/photo-7.jpg -->
+      <div class="gallery-item" data-index="6">
+        <img src="https://picsum.photos/seed/bali-g7/600/800" alt="Sacred Bali Photo 7">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- REPLACE: Photo 8 — swap src with images/sacred-bali/photo-8.jpg -->
+      <div class="gallery-item" data-index="7">
+        <img src="https://picsum.photos/seed/bali-g8/600/800" alt="Sacred Bali Photo 8">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- REPLACE: Photo 9 — swap src with images/sacred-bali/photo-9.jpg -->
+      <div class="gallery-item" data-index="8">
+        <img src="https://picsum.photos/seed/bali-g9/600/800" alt="Sacred Bali Photo 9">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <div class="lb-btn lb-close" id="lbClose">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M18 6 6 18M6 6l12 12"/>
+      </svg>
+    </div>
+    <div class="lb-btn lb-prev" id="lbPrev">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M15 18l-6-6 6-6"/>
+      </svg>
+    </div>
+    <img class="lightbox-img" id="lbImg" src="" alt="">
+    <div class="lb-btn lb-next" id="lbNext">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M9 18l6-6-6-6"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- DIVIDER -->
+  <div class="divider"><hr></div>
+
+  <!-- ABOUT / BEHIND THE JOURNEY -->
+  <section class="about-section" id="about">
+    <div class="about-left">
+      <p class="section-label">About</p>
+      <h2>I'm<br>Laina.</h2>
+    </div>
+    <div class="about-right">
+      <p>
+        I'm a visual storyteller based in Washington State, creating cinematic content for luxury stays and boutique properties.
+      </p>
+      <p>
+        A couple of years ago, I made a decision to rebuild my life around work that actually lights me up. I traded the career that looked right on paper for the one that felt right in my soul — and I picked up a camera.
+      </p>
+      <p>
+        That shift changed everything. It gave me a deep appreciation for spaces that are designed with intention, for the quiet details that make a place feel like home, and for the kind of beauty that can only be captured when you slow down long enough to really see it.
+      </p>
+      <p>
+        I don't create content that looks like an ad. I create content that feels like a moment. I work with natural light, slow pacing, and a cinematic eye to produce reels, photography, and social content that does one thing really well: make people feel something. And when people feel something, they book.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT I DELIVER -->
+  <div class="categories-wrap" id="categories">
+    <div class="categories-header">
+      <h3>What I Deliver</h3>
+      <span>Full Service</span>
+    </div>
+    <div class="categories-grid">
+
+      <!-- REPLACE: Category photo — swap src with images/categories/video.jpg -->
+      <div class="cat-item">
+        <img src="https://picsum.photos/seed/cat-video-reel/400/600" alt="Cinematic Video Reels">
+        <div class="cat-label">
+          <p class="cat-name">Cinematic<br>Video Reels</p>
+          <p class="cat-sub">Short-form &amp; Social</p>
+        </div>
+      </div>
+
+      <!-- REPLACE: Category photo — swap src with images/categories/photography.jpg -->
+      <div class="cat-item">
+        <img src="https://picsum.photos/seed/cat-lifestyle-photo/400/600" alt="Lifestyle Photography">
+        <div class="cat-label">
+          <p class="cat-name">Lifestyle<br>Photography</p>
+          <p class="cat-sub">Interiors &amp; Ambience</p>
+        </div>
+      </div>
+
+      <!-- REPLACE: Category photo — swap src with images/categories/social.jpg -->
+      <div class="cat-item">
+        <img src="https://picsum.photos/seed/cat-social-content/400/600" alt="Social Content">
+        <div class="cat-label">
+          <p class="cat-name">Social-Ready<br>Content</p>
+          <p class="cat-sub">Drive Bookings</p>
+        </div>
+      </div>
+
+      <!-- REPLACE: Category photo — swap src with images/categories/creative.jpg -->
+      <div class="cat-item">
+        <img src="https://picsum.photos/seed/cat-creative-direction/400/600" alt="Creative Direction">
+        <div class="cat-label">
+          <p class="cat-name">Creative<br>Direction</p>
+          <p class="cat-sub">Concept to Delivery</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CONTACT / FOOTER -->
+  <footer id="contact">
+    <span class="footer-logo">Soul Aligned Travels<sup>™</sup></span>
+    <nav>
+      <ul class="footer-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="mailto:hello@soulalignedtravels.com">Get In Touch</a></li>
+      </ul>
+    </nav>
+    <p class="footer-copy">© 2026 Soul Aligned Travels &nbsp;•&nbsp; Visual Storytelling for Luxury Stays</p>
+  </footer>
+
+  <script>
+    // Sticky header border
+    const hdr = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => {
+      hdr.classList.toggle('scrolled', window.scrollY > 10);
+    });
+
+    // Lightbox
+    const items  = document.querySelectorAll('.gallery-item');
+    const lb     = document.getElementById('lightbox');
+    const lbImg  = document.getElementById('lbImg');
+    let cur = 0;
+
+    const imgs = Array.from(items).map(el => ({
+      src: el.querySelector('img').src,
+      alt: el.querySelector('img').alt
+    }));
+
+    function openLb(i) {
+      cur = i;
+      lbImg.src = imgs[i].src;
+      lbImg.alt = imgs[i].alt;
+      lb.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLb() {
+      lb.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    function nextImg() { cur = (cur + 1) % imgs.length; lbImg.src = imgs[cur].src; }
+    function prevImg() { cur = (cur - 1 + imgs.length) % imgs.length; lbImg.src = imgs[cur].src; }
+
+    items.forEach((el, i) => el.addEventListener('click', () => openLb(i)));
+    document.getElementById('lbClose').addEventListener('click', closeLb);
+    document.getElementById('lbNext').addEventListener('click', nextImg);
+    document.getElementById('lbPrev').addEventListener('click', prevImg);
+    lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('active')) return;
+      if (e.key === 'Escape')     closeLb();
+      if (e.key === 'ArrowRight') nextImg();
+      if (e.key === 'ArrowLeft')  prevImg();
+    });
+
+    // Scroll reveal — gallery items
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+
+    galleryItems.forEach((el, i) => {
+      el.style.transitionDelay = `${i * 0.07}s`;
+      revealObs.observe(el);
+    });
+  </script>
+
+</body>
+</html>

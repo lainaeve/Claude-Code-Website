@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soul Aligned Travels™ — Cinematic Storytelling for Luxury Stays</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #faf9f7;
+      --text:    #1c1b1a;
+      --accent:  #c4956a;
+      --mid:     #8a8480;
+      --light:   #c0bebb;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background: var(--bg);
+      font-family: 'Barlow Condensed', sans-serif;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── HERO — SPLIT PANEL ───────────────────────────────── */
+    .hero-split {
+      display: flex;
+      height: 100vh;
+      min-height: 560px;
+    }
+
+    /* LEFT — CONTENT PANEL */
+    .content-panel {
+      flex: 0 0 38%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 48px;
+      position: relative;
+      background: var(--bg);
+      z-index: 2;
+    }
+
+    .logo {
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text);
+      white-space: nowrap;
+    }
+    .logo sup { font-size: 8px; font-weight: 400; vertical-align: super; }
+
+    .center-block {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .center-block::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .headline {
+      font-size: clamp(26px, 2.4vw, 38px);
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text);
+      line-height: 1.05;
+    }
+
+    .tagline {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent);
+      line-height: 1.6;
+    }
+
+    .cta-btn {
+      margin-top: 14px;
+      display: inline-block;
+      padding: 12px 36px;
+      border: 1px solid rgba(28,27,26,0.22);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.30em;
+      text-transform: uppercase;
+      color: var(--text);
+      transition: border-color 0.25s, background 0.25s, color 0.25s;
+    }
+    .cta-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .social-row {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .social-row a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--light);
+      transition: color 0.2s;
+    }
+    .social-row a:hover { color: var(--accent); }
+    .social-row svg { width: 16px; height: 16px; }
+
+    /* RIGHT — PHOTO PANEL */
+    .photo-panel {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .photo-panel img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      animation: slowZoom 14s ease forwards;
+    }
+
+    @keyframes slowZoom {
+      from { transform: scale(1.08); }
+      to   { transform: scale(1.0); }
+    }
+
+    .photo-panel::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(250,249,247,0.2) 0%, transparent 30%);
+      pointer-events: none;
+    }
+
+    /* ── INTRO SECTION ────────────────────────────────────── */
+    .intro-section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 100px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1.8fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .intro-left .section-rule {
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .intro-left h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(38px, 4vw, 56px);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text);
+      line-height: 1.0;
+    }
+
+    .intro-right {
+      padding-top: 8px;
+    }
+
+    .intro-right p {
+      font-family: 'Barlow', sans-serif;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: rgba(28,27,26,0.62);
+      margin-bottom: 20px;
+    }
+    .intro-right p:last-child { margin-bottom: 0; }
+
+    /* ── DIVIDER ──────────────────────────────────────────── */
+    .full-divider {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+    .full-divider hr {
+      border: none;
+      border-top: 1px solid rgba(28,27,26,0.08);
+    }
+
+    /* ── WHAT I CREATE SECTION ────────────────────────────── */
+    .services-section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 80px 48px;
+    }
+
+    .services-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 40px;
+    }
+
+    .services-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .services-list li {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(24px, 3vw, 38px);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text);
+      line-height: 1;
+      padding: 22px 0;
+      border-bottom: 1px solid rgba(28,27,26,0.08);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .services-list li:first-child {
+      border-top: 1px solid rgba(28,27,26,0.08);
+    }
+
+    .services-list li::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* ── CLOSING CTA SECTION ──────────────────────────────── */
+    .cta-section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 80px 48px 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .cta-heading {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(28px, 3.2vw, 46px);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text);
+      line-height: 1.1;
+      max-width: 560px;
+    }
+
+    .cta-sub {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    /* ── FOOTER ───────────────────────────────────────────── */
+    .site-footer {
+      border-top: 1px solid rgba(28,27,26,0.08);
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .footer-logo sup { font-size: 7px; vertical-align: super; }
+
+    .footer-nav {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .footer-nav a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .footer-nav a:hover { color: var(--accent); }
+
+    .footer-copy {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      color: var(--light);
+    }
+
+    /* ── SCROLL REVEAL ────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── MOBILE ───────────────────────────────────────────── */
+    @media (max-width: 780px) {
+      .hero-split { flex-direction: column; height: auto; min-height: 0; }
+
+      .photo-panel {
+        order: -1;
+        height: 60vw;
+        min-height: 260px;
+        flex: none;
+      }
+      .photo-panel::after {
+        background: linear-gradient(to bottom, transparent 0%, rgba(250,249,247,0.25) 100%);
+      }
+
+      .content-panel {
+        flex: none;
+        min-height: 56vw;
+        padding: 60px 28px 88px;
+      }
+
+      .logo { top: 28px; font-size: 12px; }
+      .headline { font-size: 24px; }
+      .social-row { bottom: 28px; }
+
+      .intro-section { grid-template-columns: 1fr; gap: 28px; padding: 64px 24px; }
+      .full-divider { padding: 0 24px; }
+      .services-section { padding: 60px 24px; }
+      .cta-section { padding: 60px 24px 72px; }
+      .site-footer { flex-direction: column; align-items: flex-start; gap: 16px; padding: 24px; }
+      .footer-nav { flex-wrap: wrap; gap: 14px; }
+    }
+
+    @media (max-width: 420px) {
+      .photo-panel { height: 72vw; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HERO ── -->
+  <div class="hero-split">
+
+    <div class="content-panel">
+      <a class="logo" href="index.html">Soul Aligned Travels<sup>™</sup></a>
+
+      <div class="center-block">
+        <h1 class="headline">Soul Aligned<br>Travels<sup style="font-size:0.45em; vertical-align:super;">™</sup></h1>
+        <p class="tagline">Cinematic storytelling<br>for luxury stays.</p>
+        <a class="cta-btn" href="projects.html">View My Work</a>
+      </div>
+
+      <div class="social-row">
+        <!-- Instagram — REPLACE href with your @SoulAlignedTravels URL -->
+        <a href="https://instagram.com/soulalignedtravels" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <!-- Facebook -->
+        <a href="#" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+        </a>
+        <!-- Portfolio link -->
+        <a href="projects.html" aria-label="View Portfolio">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- REPLACE: Your hero photo — swap src with images/hero.jpg -->
+    <div class="photo-panel">
+      <img
+        src="https://picsum.photos/seed/luxury-cabin-forest/1400/1000"
+        alt="Soul Aligned Travels — Cinematic storytelling for luxury stays"
+      >
+    </div>
+
+  </div>
+
+  <!-- ── INTRO ── -->
+  <section class="intro-section reveal">
+    <div class="intro-left">
+      <div class="section-rule"></div>
+      <h2>Every stay<br>has a<br>story.</h2>
+    </div>
+    <div class="intro-right">
+      <p>
+        I create cinematic visual content for boutique hotels, luxury cabins, and one-of-a-kind properties. The kind of imagery that makes someone stop scrolling and start booking.
+      </p>
+      <p>
+        Through intentional filmmaking and soulful photography, I capture the feeling of being there — the light through the window, the quiet of the morning, the details that make a place unforgettable.
+      </p>
+    </div>
+  </section>
+
+  <div class="full-divider"><hr></div>
+
+  <!-- ── WHAT I CREATE ── -->
+  <section class="services-section reveal">
+    <p class="services-label">What I Create</p>
+    <ul class="services-list">
+      <li>Cinematic property reels that tell a visual story.</li>
+      <li>Lifestyle photography that captures the soul of a space.</li>
+      <li>Social-ready content designed to drive bookings.</li>
+    </ul>
+  </section>
+
+  <div class="full-divider"><hr></div>
+
+  <!-- ── CLOSING CTA ── -->
+  <section class="cta-section reveal">
+    <h2 class="cta-heading">Ready to show the world what makes your property unforgettable?</h2>
+    <p class="cta-sub">Let's work together.</p>
+    <a class="cta-btn" href="project.html#contact">Get In Touch</a>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer">
+    <span class="footer-logo">Soul Aligned Travels<sup>™</sup></span>
+    <nav>
+      <ul class="footer-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Work</a></li>
+        <li><a href="project.html#about">About</a></li>
+        <li><a href="project.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <p class="footer-copy">© 2026 Soul Aligned Travels &nbsp;•&nbsp; Visual Storytelling for Luxury Stays</p>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    reveals.forEach((el, i) => {
+      el.style.transitionDelay = `${i * 0.1}s`;
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
