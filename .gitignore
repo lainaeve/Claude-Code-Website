@@ -1,0 +1,10 @@
+.DS_Store
+*.DS_Store
+
+# Raw/original video files (keep only converted mp4s)
+images/joshua-tree/videos/copy_*
+images/packwood/videos/copy_*
+images/hero.mov
+
+# Word docs
+*.docx
