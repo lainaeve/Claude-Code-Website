@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luxury Cabin — Mount Rainier | Soul Aligned Travels</title>
-  <meta name="description" content="A secluded cabin framed by old-growth forest and mountain air. Cinematic content by Laina Chavez — Soul Aligned Travels.">
-  <meta property="og:title" content="Luxury Cabin — Mount Rainier | Soul Aligned Travels">
-  <meta property="og:description" content="A secluded cabin framed by old-growth forest and mountain air.">
-  <meta property="og:image" content="https://picsum.photos/seed/rainier-cabin/1200/630">
+  <title>Mount Rainier & Olympic Rainforest | Soul Aligned Travels</title>
+  <meta name="description" content="A personal landscape project through old-growth canopy and alpine meadows of the Pacific Northwest. By Laina Chavez — Soul Aligned Travels.">
+  <meta property="og:title" content="Mount Rainier & Olympic Rainforest | Soul Aligned Travels">
+  <meta property="og:description" content="Not every story happens inside four walls.">
+  <meta property="og:image" content="./images/rainier-olympic/12-mt.jpg">
   <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif'>SA</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -69,10 +69,8 @@
       align-items: center;
       gap: 0.6rem;
       font-family: 'Raleway', sans-serif;
-      font-size: 0.65rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
+      font-size: 0.65rem; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.18em;
       color: #8B7D6B;
     }
     .breadcrumb a { color: #8B7D6B; transition: color 0.3s; }
@@ -83,13 +81,12 @@
     /* ── HERO ── */
     .hero {
       position: relative;
-      width: 100%;
-      height: 88vh;
+      width: 100%; height: 88vh;
       min-height: 520px;
       overflow: hidden;
       margin-top: 1.5rem;
     }
-    .hero img, .hero video {
+    .hero img {
       position: absolute; inset: 0;
       width: 100%; height: 100%;
       object-fit: cover; object-position: center;
@@ -101,7 +98,7 @@
         to bottom,
         rgba(44,36,32,0.1) 0%,
         rgba(44,36,32,0.05) 40%,
-        rgba(44,36,32,0.6) 100%
+        rgba(44,36,32,0.55) 100%
       );
     }
     .hero-label {
@@ -143,8 +140,7 @@
     .intro-value {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1rem; font-weight: 400;
-      color: #2C2420;
-      line-height: 1.5;
+      color: #2C2420; line-height: 1.5;
     }
     .intro-meta-block { margin-bottom: 1.75rem; }
     .intro-body p {
@@ -157,102 +153,16 @@
 
     /* ── SECTION LABEL ── */
     .section-label {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
+      display: flex; align-items: center; gap: 1.5rem;
       margin-bottom: 2.5rem;
     }
     .section-label-text {
       font-family: 'Raleway', sans-serif;
       font-size: 0.62rem; font-weight: 600;
       text-transform: uppercase; letter-spacing: 0.25em;
-      color: #8B7D6B;
-      white-space: nowrap;
+      color: #8B7D6B; white-space: nowrap;
     }
-    .section-label-rule {
-      flex: 1;
-      height: 1px;
-      background: rgba(44,36,32,0.1);
-    }
-
-    /* ── REEL / VIDEO SECTION ── */
-    .reel-section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 2rem 5rem;
-    }
-    .reel-embed {
-      width: 100%;
-      background: #2C2420;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .project-video {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-    }
-    .project-video video {
-      aspect-ratio: 9/16;
-      max-height: 85vh;
-      width: 400px;
-      margin: 0 auto;
-      display: block;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-    @media (max-width: 768px) {
-      .project-video video {
-        width: 100%;
-        border-radius: 0;
-        max-height: 90vh;
-      }
-    }
-    /* TO ADD YOUR VIDEO:
-       Option A — Local file: <video controls playsinline poster="./images/mr-reel-thumb.jpg"><source src="./images/mr-reel.mp4" type="video/mp4"></video>
-       Option B — YouTube embed: paste iframe here
-       Option C — Instagram Reel: paste embed code here
-       Remove the .reel-placeholder div when you add a real video */
-    .reel-placeholder {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      color: rgba(250,248,245,0.5);
-      text-align: center;
-      padding: 2rem;
-    }
-    .reel-placeholder-icon {
-      width: 56px; height: 56px;
-      border: 1.5px solid rgba(250,248,245,0.25);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .reel-placeholder-icon svg { width: 20px; height: 20px; fill: rgba(250,248,245,0.4); margin-left: 3px; }
-    .reel-placeholder-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem; font-weight: 300;
-      color: rgba(250,248,245,0.6);
-      letter-spacing: 0.05em;
-    }
-    .reel-placeholder-sub {
-      font-family: 'Raleway', sans-serif;
-      font-size: 0.65rem; font-weight: 400;
-      text-transform: uppercase; letter-spacing: 0.18em;
-      color: rgba(250,248,245,0.28);
-    }
-    .reel-caption {
-      margin-top: 1rem;
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 0.92rem;
-      color: #8B7D6B;
-      letter-spacing: 0.02em;
-    }
+    .section-label-rule { flex: 1; height: 1px; background: rgba(44,36,32,0.1); }
 
     /* ── PHOTO GALLERY ── */
     .gallery-section {
@@ -260,36 +170,27 @@
       margin: 0 auto;
       padding: 0 2rem 5rem;
     }
-
     .photo-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
       background: rgba(44,36,32,0.06);
     }
-
     .photo-item {
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      background: #e8e4e0;
+      position: relative; overflow: hidden;
+      cursor: pointer; background: #e8e4e0;
       aspect-ratio: 4/3;
     }
     .photo-item img {
-      display: block;
-      width: 100%; height: 100%;
+      display: block; width: 100%; height: 100%;
       object-fit: cover;
       transition: transform 0.7s ease, filter 0.5s ease;
     }
-    .photo-item:hover img {
-      transform: scale(1.04);
-      filter: brightness(0.88);
-    }
+    .photo-item:hover img { transform: scale(1.04); filter: brightness(0.88); }
     .photo-item-overlay {
       position: absolute; inset: 0;
       display: flex; align-items: center; justify-content: center;
-      opacity: 0;
-      transition: opacity 0.4s ease;
+      opacity: 0; transition: opacity 0.4s ease;
     }
     .photo-item:hover .photo-item-overlay { opacity: 1; }
     .photo-expand-icon {
@@ -300,32 +201,12 @@
     }
     .photo-expand-icon svg { width: 14px; height: 14px; stroke: #FAF8F5; fill: none; }
 
-    .photo-placeholder {
-      position: relative;
-      background: #ede9e4;
-      aspect-ratio: 4/3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      cursor: default;
-    }
-    .photo-placeholder-text {
-      font-family: 'Raleway', sans-serif;
-      font-size: 0.6rem; font-weight: 500;
-      text-transform: uppercase; letter-spacing: 0.2em;
-      color: rgba(44,36,32,0.25);
-    }
-    .photo-placeholder svg { width: 24px; height: 24px; stroke: rgba(44,36,32,0.2); fill: none; }
-
     /* ── LIGHTBOX ── */
     .lightbox {
       display: none;
       position: fixed; inset: 0; z-index: 9000;
       background: rgba(20,16,14,0.97);
-      align-items: center;
-      justify-content: center;
+      align-items: center; justify-content: center;
     }
     .lightbox.open { display: flex; }
     .lightbox-img { max-width: 90vw; max-height: 90vh; object-fit: contain; }
@@ -360,18 +241,14 @@
     }
     .project-nav-item {
       padding: 2.5rem 2.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
+      display: flex; flex-direction: column; gap: 0.4rem;
       transition: background 0.4s ease;
-      text-decoration: none;
-      color: inherit;
+      text-decoration: none; color: inherit;
     }
     .project-nav-item:hover { background: rgba(44,36,32,0.03); }
     .project-nav-item:last-child {
       border-left: 1px solid rgba(44,36,32,0.08);
-      text-align: right;
-      align-items: flex-end;
+      text-align: right; align-items: flex-end;
     }
     .project-nav-dir {
       font-family: 'Raleway', sans-serif;
@@ -388,8 +265,7 @@
     /* ── FOOTER ── */
     footer {
       background: #2C2420;
-      padding: 1.75rem 2rem;
-      text-align: center;
+      padding: 1.75rem 2rem; text-align: center;
     }
     footer p {
       font-family: 'Raleway', sans-serif;
@@ -401,27 +277,20 @@
     @media (min-width: 780px) {
       .site-nav { padding: 1.5rem 4rem; }
       .breadcrumb { padding: 1.5rem 4rem 0; }
-      .reel-section, .gallery-section { padding-left: 4rem; padding-right: 4rem; }
+      .gallery-section { padding-left: 4rem; padding-right: 4rem; }
       .project-nav-item { padding: 2.5rem 4rem; }
     }
     @media (max-width: 780px) {
-      .project-intro {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        padding: 3rem 1.5rem 3rem;
-      }
+      .project-intro { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem 3rem; }
       .photo-grid { grid-template-columns: repeat(2, 1fr); }
       .project-nav { grid-template-columns: 1fr; }
       .project-nav-item:last-child {
         border-left: none;
         border-top: 1px solid rgba(44,36,32,0.08);
-        text-align: left;
-        align-items: flex-start;
+        text-align: left; align-items: flex-start;
       }
     }
-    @media (max-width: 500px) {
-      .photo-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 500px) { .photo-grid { grid-template-columns: 1fr; } }
     @media (max-width: 779px) {
       .nav-toggle { display: block; }
       .nav-links {
@@ -455,19 +324,19 @@
   <div class="breadcrumb">
     <a href="portfolio.html">Portfolio</a>
     <span class="breadcrumb-sep">&#8250;</span>
-    <span class="breadcrumb-current">Luxury Cabin — Mount Rainier</span>
+    <span class="breadcrumb-current">Mount Rainier &amp; Olympic Rainforest</span>
   </div>
 
   <!-- HERO -->
   <section class="hero">
     <img
-      src="./images/packwood/2-packwood10.jpg"
-      alt="Luxury Cabin — Mount Rainier, Washington State"
+      src="./images/rainier-olympic/12-mt.jpg"
+      alt="Mount Rainier & Olympic Rainforest — Washington State"
     >
     <div class="hero-overlay"></div>
     <div class="hero-label">
-      <p class="hero-label-location">Mount Rainier, Washington</p>
-      <h1 class="hero-label-title">Luxury Cabin<br>Mount Rainier</h1>
+      <p class="hero-label-location">Washington</p>
+      <h1 class="hero-label-title">Mount Rainier<br>&amp; Olympic Rainforest</h1>
     </div>
   </section>
 
@@ -476,68 +345,20 @@
     <div class="intro-meta">
       <div class="intro-meta-block">
         <p class="intro-label">Location</p>
-        <p class="intro-value">Mount Rainier,<br>Washington</p>
+        <p class="intro-value">Washington</p>
       </div>
       <div class="intro-meta-block">
         <p class="intro-label">Category</p>
-        <p class="intro-value">Forest<br>Cabin</p>
+        <p class="intro-value">Landscape /<br>Personal Project</p>
       </div>
       <div class="intro-meta-block">
         <p class="intro-label">Content</p>
-        <p class="intro-value">Cinematic Reel<br>Photography</p>
+        <p class="intro-value">Photography</p>
       </div>
     </div>
     <div class="intro-body">
-      <p>A luxury A-frame in the Douglas Firs, minutes from Mount Rainier. I captured the details — fireplace, morning light through the A-frame windows. The kind of shots that make someone book before they finish scrolling.</p>
+      <p>Not every story happens inside four walls. This personal project took me through old-growth canopy and alpine meadows — capturing the light, the silence, and the scale of the Pacific Northwest. The same eye I bring to every property, just pointed at the landscape that inspires all of it.</p>
     </div>
-  </section>
-
-  <!-- REEL / VIDEO SECTION -->
-  <section class="reel-section">
-    <div class="section-label reveal">
-      <span class="section-label-text">Cinematic Reel</span>
-      <div class="section-label-rule"></div>
-    </div>
-    <div class="reel-embed reveal">
-      <div class="project-video">
-        <video controls playsinline preload="metadata">
-          <source src="./images/packwood/videos/packwood-reel-1.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
-    <p class="reel-caption reveal">Cinematic property reel · Packwood, WA</p>
-  </section>
-
-  <!-- SECOND VIDEO -->
-  <section class="reel-section">
-    <div class="section-label reveal">
-      <span class="section-label-text">More Footage</span>
-      <div class="section-label-rule"></div>
-    </div>
-    <div class="reel-embed reveal">
-      <div class="project-video">
-        <video controls playsinline preload="metadata">
-          <source src="./images/packwood/videos/packwood-reel-2.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
-    <p class="reel-caption reveal">Luxury Cabin — Mount Rainier, WA</p>
-  </section>
-
-  <!-- THIRD VIDEO -->
-  <section class="reel-section">
-    <div class="section-label reveal">
-      <span class="section-label-text">Details</span>
-      <div class="section-label-rule"></div>
-    </div>
-    <div class="reel-embed reveal">
-      <div class="project-video">
-        <video controls playsinline preload="metadata">
-          <source src="./images/packwood/videos/packwood-reel-3.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
-    <p class="reel-caption reveal">Luxury Cabin — Mount Rainier, WA</p>
   </section>
 
   <!-- PHOTO GALLERY -->
@@ -550,84 +371,73 @@
     <div class="photo-grid" id="photo-grid">
 
       <div class="photo-item reveal" data-index="0">
-        <img src="./images/packwood/1-packwood009.jpg" alt="Mount Rainier cabin" loading="lazy">
-        <div class="photo-item-overlay">
-          <div class="photo-expand-icon">
-            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-          </div>
-        </div>
+        <img src="./images/rainier-olympic/1-IMG_2124.jpg" alt="Mount Rainier & Olympic Rainforest" loading="lazy">
+        <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="1">
-        <img src="./images/packwood/2-packwood10.jpg" alt="Mount Rainier cabin" loading="lazy">
-        <div class="photo-item-overlay">
-          <div class="photo-expand-icon">
-            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-          </div>
-        </div>
+        <img src="./images/rainier-olympic/2-IMG_3844.jpg" alt="Mount Rainier & Olympic Rainforest" loading="lazy">
+        <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="2">
-        <img src="./images/packwood/3-packwood008.jpg" alt="Mount Rainier cabin" loading="lazy">
-        <div class="photo-item-overlay">
-          <div class="photo-expand-icon">
-            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-          </div>
-        </div>
+        <img src="./images/rainier-olympic/3-IMG_3854.jpg" alt="Mount Rainier & Olympic Rainforest" loading="lazy">
+        <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="3">
-        <img src="./images/packwood/4-IMG_4659.jpg" alt="Mount Rainier cabin" loading="lazy">
-        <div class="photo-item-overlay">
-          <div class="photo-expand-icon">
-            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-          </div>
-        </div>
+        <img src="./images/rainier-olympic/4-IMG_3858.jpg" alt="Mount Rainier & Olympic Rainforest" loading="lazy">
+        <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="4">
-        <img src="./images/packwood/5-packwood007.jpg" alt="Mount Rainier cabin" loading="lazy">
-        <div class="photo-item-overlay">
-          <div class="photo-expand-icon">
-            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-          </div>
-        </div>
+        <img src="./images/rainier-olympic/5-IMG_2442.jpg" alt="Mount Rainier & Olympic Rainforest" loading="lazy">
+        <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="5">
-        <img src="./images/packwood/6-IMG_2475.jpg" alt="Mount Rainier cabin" loading="lazy">
-        <div class="photo-item-overlay">
-          <div class="photo-expand-icon">
-            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-          </div>
-        </div>
+        <img src="./images/rainier-olympic/6-IMG_2648.jpg" alt="Mount Rainier & Olympic Rainforest" loading="lazy">
+        <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="6">
-        <img src="./images/packwood/7-IMG_2476.jpg" alt="Mount Rainier cabin" loading="lazy">
-        <div class="photo-item-overlay">
-          <div class="photo-expand-icon">
-            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-          </div>
-        </div>
+        <img src="./images/rainier-olympic/7-IMG_2704.jpg" alt="Mount Rainier & Olympic Rainforest" loading="lazy">
+        <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="7">
-        <img src="./images/packwood/8-IMG_2477.jpg" alt="Mount Rainier cabin" loading="lazy">
-        <div class="photo-item-overlay">
-          <div class="photo-expand-icon">
-            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-          </div>
-        </div>
+        <img src="./images/rainier-olympic/8-IMG_3026.jpg" alt="Mount Rainier & Olympic Rainforest" loading="lazy">
+        <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="8">
-        <img src="./images/packwood/IMG_4042.jpg" alt="Mount Rainier cabin" loading="lazy">
-        <div class="photo-item-overlay">
-          <div class="photo-expand-icon">
-            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-          </div>
-        </div>
+        <img src="./images/rainier-olympic/9-IMG_3198.jpg" alt="Mount Rainier & Olympic Rainforest" loading="lazy">
+        <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+      </div>
+
+      <div class="photo-item reveal" data-index="9">
+        <img src="./images/rainier-olympic/10-IMG_3213.jpg" alt="Mount Rainier & Olympic Rainforest" loading="lazy">
+        <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+      </div>
+
+      <div class="photo-item reveal" data-index="10">
+        <img src="./images/rainier-olympic/11-IMG_3283.jpg" alt="Mount Rainier & Olympic Rainforest" loading="lazy">
+        <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+      </div>
+
+      <div class="photo-item reveal" data-index="11">
+        <img src="./images/rainier-olympic/12-mt.jpg" alt="Mount Rainier & Olympic Rainforest" loading="lazy">
+        <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+      </div>
+
+      <div class="photo-item reveal" data-index="12">
+        <img src="./images/rainier-olympic/13-IMG_4069.jpg" alt="Mount Rainier & Olympic Rainforest" loading="lazy">
+        <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
+      </div>
+
+      <div class="photo-item reveal" data-index="13">
+        <img src="./images/rainier-olympic/14-IMG_4410.jpg" alt="Mount Rainier & Olympic Rainforest" loading="lazy">
+        <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
     </div><!-- /photo-grid -->
@@ -644,13 +454,13 @@
 
   <!-- PROJECT NAV -->
   <nav class="project-nav">
-    <a href="joshua-tree.html" class="project-nav-item">
+    <a href="mount-rainier.html" class="project-nav-item">
       <span class="project-nav-dir">&#8592; Previous Project</span>
-      <span class="project-nav-title">Joshua Tree Retreat</span>
+      <span class="project-nav-title">Luxury Cabin — Mount Rainier</span>
     </a>
-    <a href="rainier-olympic.html" class="project-nav-item">
-      <span class="project-nav-dir">Next Project &#8594;</span>
-      <span class="project-nav-title">Mount Rainier &amp; Olympic Rainforest</span>
+    <a href="portfolio.html" class="project-nav-item">
+      <span class="project-nav-dir">Back to &#8594;</span>
+      <span class="project-nav-title">All Work</span>
     </a>
   </nav>
 
@@ -660,18 +470,15 @@
   </footer>
 
   <script>
-    // ── Nav scroll shadow ──
     const nav = document.getElementById('site-nav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 20);
     });
 
-    // ── Mobile hamburger ──
     document.querySelector('.nav-toggle').addEventListener('click', () => {
       document.querySelector('.nav-links').classList.toggle('open');
     });
 
-    // ── Scroll reveal ──
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); }
@@ -679,7 +486,6 @@
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // ── Lightbox ──
     const photos = Array.from(document.querySelectorAll('.photo-item img'));
     const lb     = document.getElementById('lightbox');
     const lbImg  = document.getElementById('lb-img');
@@ -711,8 +517,8 @@
     document.addEventListener('keydown', e => {
       if (!lb.classList.contains('open')) return;
       if (e.key === 'ArrowRight') showNext();
-      if (e.key === 'ArrowLeft')  showPrev();
-      if (e.key === 'Escape')     closeLightbox();
+      if (e.key === 'ArrowLeft') showPrev();
+      if (e.key === 'Escape') closeLightbox();
     });
   </script>
 </body>
