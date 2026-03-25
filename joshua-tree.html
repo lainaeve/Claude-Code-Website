@@ -464,6 +464,15 @@
       .nav-links a { display: block; padding: 1rem 2rem; border-bottom: 1px solid rgba(44,36,32,0.06); }
       .site-nav { position: relative; }
     }
+
+  /* Lazy image fade-in */
+  img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.4s ease-in;
+  }
+  img[loading="lazy"].loaded {
+    opacity: 1;
+  }
   </style>
 </head>
 <body>
@@ -563,117 +572,117 @@
     <div class="photo-grid" id="photo-grid">
 
       <div class="photo-item reveal" data-index="0">
-        <img src="./images/joshua-tree/1-IMG_1053.jpg" alt="Joshua Tree Retreat" loading="lazy">
+        <img src="./images/joshua-tree/1-IMG_1053.jpg" alt="Joshua Tree Retreat" loading="lazy" decoding="async">
         <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="1">
-        <img src="./images/joshua-tree/2-joshuatree003.jpg" alt="Joshua Tree Retreat" loading="lazy">
+        <img src="./images/joshua-tree/2-joshuatree003.jpg" alt="Joshua Tree Retreat" loading="lazy" decoding="async">
         <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="2">
-        <img src="./images/joshua-tree/3-IMG_0976.jpg" alt="Joshua Tree Retreat" loading="lazy">
+        <img src="./images/joshua-tree/3-IMG_0976.jpg" alt="Joshua Tree Retreat" loading="lazy" decoding="async">
         <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="3">
-        <img src="./images/joshua-tree/4-IMG_1047.jpg" alt="Joshua Tree Retreat" loading="lazy">
+        <img src="./images/joshua-tree/4-IMG_1047.jpg" alt="Joshua Tree Retreat" loading="lazy" decoding="async">
         <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="4">
-        <img src="./images/joshua-tree/5-joshuatree012.jpg" alt="Joshua Tree Retreat" loading="lazy">
+        <img src="./images/joshua-tree/5-joshuatree012.jpg" alt="Joshua Tree Retreat" loading="lazy" decoding="async">
         <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="5">
-        <img src="./images/joshua-tree/6-joshuatree006.jpg" alt="Joshua Tree Retreat" loading="lazy">
+        <img src="./images/joshua-tree/6-joshuatree006.jpg" alt="Joshua Tree Retreat" loading="lazy" decoding="async">
         <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="6">
-        <img src="./images/joshua-tree/7-IMG_1003.jpg" alt="Joshua Tree Retreat" loading="lazy">
+        <img src="./images/joshua-tree/7-IMG_1003.jpg" alt="Joshua Tree Retreat" loading="lazy" decoding="async">
         <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="7">
-        <img src="./images/joshua-tree/8-joshuatree025 (1).jpg" alt="Joshua Tree Retreat" loading="lazy">
+        <img src="./images/joshua-tree/8-joshuatree025 (1).jpg" alt="Joshua Tree Retreat" loading="lazy" decoding="async">
         <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="8">
-        <img src="./images/joshua-tree/9-IMG_0985.jpg" alt="Joshua Tree Retreat" loading="lazy">
+        <img src="./images/joshua-tree/9-IMG_0985.jpg" alt="Joshua Tree Retreat" loading="lazy" decoding="async">
         <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="9">
-        <img src="./images/joshua-tree/10-jt-hero.jpg" alt="Joshua Tree Retreat" loading="lazy">
+        <img src="./images/joshua-tree/10-jt-hero.jpg" alt="Joshua Tree Retreat" loading="lazy" decoding="async">
         <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="10">
-        <img src="./images/joshua-tree/11-joshuatree024.jpg" alt="Joshua Tree Retreat" loading="lazy">
+        <img src="./images/joshua-tree/11-joshuatree024.jpg" alt="Joshua Tree Retreat" loading="lazy" decoding="async">
         <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="11">
-        <img src="./images/joshua-tree/12-joshuatree022.jpg" alt="Joshua Tree Retreat" loading="lazy">
+        <img src="./images/joshua-tree/12-joshuatree022.jpg" alt="Joshua Tree Retreat" loading="lazy" decoding="async">
         <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="12">
-        <img src="./images/joshua-tree/13-IMG_8795.jpg" alt="Joshua Tree Retreat" loading="lazy">
+        <img src="./images/joshua-tree/13-IMG_8795.jpg" alt="Joshua Tree Retreat" loading="lazy" decoding="async">
         <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="13">
-        <img src="./images/joshua-tree/14-IMG_9050.jpg" alt="Joshua Tree Retreat" loading="lazy">
+        <img src="./images/joshua-tree/14-IMG_9050.jpg" alt="Joshua Tree Retreat" loading="lazy" decoding="async">
         <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="14">
-        <img src="./images/joshua-tree/15-IMG_9051.jpg" alt="Joshua Tree Retreat" loading="lazy">
+        <img src="./images/joshua-tree/15-IMG_9051.jpg" alt="Joshua Tree Retreat" loading="lazy" decoding="async">
         <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="15">
-        <img src="./images/joshua-tree/16-joshuatree028.jpg" alt="Joshua Tree Retreat" loading="lazy">
+        <img src="./images/joshua-tree/16-joshuatree028.jpg" alt="Joshua Tree Retreat" loading="lazy" decoding="async">
         <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="16">
-        <img src="./images/joshua-tree/17-joshuatree020.jpg" alt="Joshua Tree Retreat" loading="lazy">
+        <img src="./images/joshua-tree/17-joshuatree020.jpg" alt="Joshua Tree Retreat" loading="lazy" decoding="async">
         <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="17">
-        <img src="./images/joshua-tree/18-joshuatree031.jpg" alt="Joshua Tree Retreat" loading="lazy">
+        <img src="./images/joshua-tree/18-joshuatree031.jpg" alt="Joshua Tree Retreat" loading="lazy" decoding="async">
         <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="18">
-        <img src="./images/joshua-tree/19-IMG_9521.jpg" alt="Joshua Tree Retreat" loading="lazy">
+        <img src="./images/joshua-tree/19-IMG_9521.jpg" alt="Joshua Tree Retreat" loading="lazy" decoding="async">
         <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="19">
-        <img src="./images/joshua-tree/20-joshuatree015.jpg" alt="Joshua Tree Retreat" loading="lazy">
+        <img src="./images/joshua-tree/20-joshuatree015.jpg" alt="Joshua Tree Retreat" loading="lazy" decoding="async">
         <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="20">
-        <img src="./images/joshua-tree/21-joshuatree005.jpg" alt="Joshua Tree Retreat" loading="lazy">
+        <img src="./images/joshua-tree/21-joshuatree005.jpg" alt="Joshua Tree Retreat" loading="lazy" decoding="async">
         <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="21">
-        <img src="./images/joshua-tree/22-IMG_9556.jpg" alt="Joshua Tree Retreat" loading="lazy">
+        <img src="./images/joshua-tree/22-IMG_9556.jpg" alt="Joshua Tree Retreat" loading="lazy" decoding="async">
         <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
       <div class="photo-item reveal" data-index="22">
-        <img src="./images/joshua-tree/23-joshuatree002.jpg" alt="Joshua Tree Retreat" loading="lazy">
+        <img src="./images/joshua-tree/23-joshuatree002.jpg" alt="Joshua Tree Retreat" loading="lazy" decoding="async">
         <div class="photo-item-overlay"><div class="photo-expand-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div></div>
       </div>
 
@@ -761,6 +770,19 @@
       if (e.key === 'ArrowLeft')  showPrev();
       if (e.key === 'Escape')     closeLightbox();
     });
+  </script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('img[loading="lazy"]').forEach(function(img) {
+      if (img.complete) {
+        img.classList.add('loaded');
+      } else {
+        img.addEventListener('load', function() {
+          img.classList.add('loaded');
+        });
+      }
+    });
+  });
   </script>
 </body>
 </html>

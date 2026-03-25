@@ -329,6 +329,15 @@
       .site-nav { position: relative; }
       .btn-submit { width: 100%; }
     }
+
+  /* Lazy image fade-in */
+  img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.4s ease-in;
+  }
+  img[loading="lazy"].loaded {
+    opacity: 1;
+  }
   </style>
 </head>
 <body>
@@ -494,6 +503,19 @@
       });
     }, { threshold: 0.15 });
     reveals.forEach(el => observer.observe(el));
+  </script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('img[loading="lazy"]').forEach(function(img) {
+      if (img.complete) {
+        img.classList.add('loaded');
+      } else {
+        img.addEventListener('load', function() {
+          img.classList.add('loaded');
+        });
+      }
+    });
+  });
   </script>
 </body>
 </html>

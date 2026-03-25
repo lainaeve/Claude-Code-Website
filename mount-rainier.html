@@ -435,6 +435,15 @@
       .nav-links a { display: block; padding: 1rem 2rem; border-bottom: 1px solid rgba(44,36,32,0.06); }
       .site-nav { position: relative; }
     }
+
+  /* Lazy image fade-in */
+  img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.4s ease-in;
+  }
+  img[loading="lazy"].loaded {
+    opacity: 1;
+  }
   </style>
 </head>
 <body>
@@ -550,7 +559,7 @@
     <div class="photo-grid" id="photo-grid">
 
       <div class="photo-item reveal" data-index="0">
-        <img src="./images/packwood/1-packwood009.jpg" alt="Mount Rainier cabin" loading="lazy">
+        <img src="./images/packwood/1-packwood009.jpg" alt="Mount Rainier cabin" loading="lazy" decoding="async">
         <div class="photo-item-overlay">
           <div class="photo-expand-icon">
             <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
@@ -559,7 +568,7 @@
       </div>
 
       <div class="photo-item reveal" data-index="1">
-        <img src="./images/packwood/2-packwood10.jpg" alt="Mount Rainier cabin" loading="lazy">
+        <img src="./images/packwood/2-packwood10.jpg" alt="Mount Rainier cabin" loading="lazy" decoding="async">
         <div class="photo-item-overlay">
           <div class="photo-expand-icon">
             <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
@@ -568,7 +577,7 @@
       </div>
 
       <div class="photo-item reveal" data-index="2">
-        <img src="./images/packwood/3-packwood008.jpg" alt="Mount Rainier cabin" loading="lazy">
+        <img src="./images/packwood/3-packwood008.jpg" alt="Mount Rainier cabin" loading="lazy" decoding="async">
         <div class="photo-item-overlay">
           <div class="photo-expand-icon">
             <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
@@ -577,7 +586,7 @@
       </div>
 
       <div class="photo-item reveal" data-index="3">
-        <img src="./images/packwood/4-IMG_4659.jpg" alt="Mount Rainier cabin" loading="lazy">
+        <img src="./images/packwood/4-IMG_4659.jpg" alt="Mount Rainier cabin" loading="lazy" decoding="async">
         <div class="photo-item-overlay">
           <div class="photo-expand-icon">
             <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
@@ -586,7 +595,7 @@
       </div>
 
       <div class="photo-item reveal" data-index="4">
-        <img src="./images/packwood/5-packwood007.jpg" alt="Mount Rainier cabin" loading="lazy">
+        <img src="./images/packwood/5-packwood007.jpg" alt="Mount Rainier cabin" loading="lazy" decoding="async">
         <div class="photo-item-overlay">
           <div class="photo-expand-icon">
             <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
@@ -595,7 +604,7 @@
       </div>
 
       <div class="photo-item reveal" data-index="5">
-        <img src="./images/packwood/6-IMG_2475.jpg" alt="Mount Rainier cabin" loading="lazy">
+        <img src="./images/packwood/6-IMG_2475.jpg" alt="Mount Rainier cabin" loading="lazy" decoding="async">
         <div class="photo-item-overlay">
           <div class="photo-expand-icon">
             <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
@@ -604,7 +613,7 @@
       </div>
 
       <div class="photo-item reveal" data-index="6">
-        <img src="./images/packwood/7-IMG_2476.jpg" alt="Mount Rainier cabin" loading="lazy">
+        <img src="./images/packwood/7-IMG_2476.jpg" alt="Mount Rainier cabin" loading="lazy" decoding="async">
         <div class="photo-item-overlay">
           <div class="photo-expand-icon">
             <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
@@ -613,7 +622,7 @@
       </div>
 
       <div class="photo-item reveal" data-index="7">
-        <img src="./images/packwood/8-IMG_2477.jpg" alt="Mount Rainier cabin" loading="lazy">
+        <img src="./images/packwood/8-IMG_2477.jpg" alt="Mount Rainier cabin" loading="lazy" decoding="async">
         <div class="photo-item-overlay">
           <div class="photo-expand-icon">
             <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
@@ -622,7 +631,7 @@
       </div>
 
       <div class="photo-item reveal" data-index="8">
-        <img src="./images/packwood/IMG_4042.jpg" alt="Mount Rainier cabin" loading="lazy">
+        <img src="./images/packwood/IMG_4042.jpg" alt="Mount Rainier cabin" loading="lazy" decoding="async">
         <div class="photo-item-overlay">
           <div class="photo-expand-icon">
             <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
@@ -714,6 +723,19 @@
       if (e.key === 'ArrowLeft')  showPrev();
       if (e.key === 'Escape')     closeLightbox();
     });
+  </script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('img[loading="lazy"]').forEach(function(img) {
+      if (img.complete) {
+        img.classList.add('loaded');
+      } else {
+        img.addEventListener('load', function() {
+          img.classList.add('loaded');
+        });
+      }
+    });
+  });
   </script>
 </body>
 </html>
